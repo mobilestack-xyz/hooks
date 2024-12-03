@@ -73,7 +73,7 @@ async function getVeMentoPositionDefinition(
         2,
       )}`,
       imageUrl:
-        'https://raw.githubusercontent.com/valora-inc/hooks/main/src/apps/mento/assets/veMENTO.png',
+        'https://raw.githubusercontent.com/mobilestack-xyz/hooks/main/src/apps/mento/assets/veMENTO.png',
       manageUrl: undefined,
     },
     balances: async ({ resolvedTokensByTokenId }) => {

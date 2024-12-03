@@ -1,9 +1,9 @@
 {
-  "name": "@valora/hooks",
+  "name": "@mobilestack/hooks",
   "version": "0.0.0-semantic-release",
   "main": "dist/api/index.js",
   "typings": "dist/api/index.d.ts",
-  "repository": "https://github.com/valora-inc/hooks.git",
+  "repository": "https://github.com/mobilestack-xyz/hooks.git",
   "author": "Valora Inc",
   "license": "Apache-2.0",
   "private": true,

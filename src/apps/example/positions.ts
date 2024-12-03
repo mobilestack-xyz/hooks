@@ -62,7 +62,7 @@ const hook: PositionsHook = {
 
     return [
       {
-        // Position Hooks type, see https://docs.valora.xyz/hooks/
+        // Position Hooks type, see https://docs.mobilestack.xyz/hooks/
         type: 'contract-position-definition',
         networkId,
         // This serves an ID and by convention it should be the contract holding
