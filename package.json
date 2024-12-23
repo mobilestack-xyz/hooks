@@ -46,7 +46,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "got": "^11.8.6",
-    "i18next": "^24.1.2",
+    "i18next": "^24.2.0",
     "i18next-fs-backend": "^2.6.0",
     "i18next-http-middleware": "^3.7.0",
     "lru-cache": "^11.0.2",
