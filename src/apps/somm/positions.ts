@@ -86,7 +86,11 @@ const hook: PositionsHook = {
           displayProps: () => {
             return {
               title: cellarName,
-              description: underlyingAssetSymbol,
+              description: `${underlyingAssetSymbol}${
+                cellar.apy !== undefined
+                  ? ` (APY: ${cellar.apy.toFixed(2)}%)`
+                  : ''
+              }`,
               imageUrl:
                 'https://raw.githubusercontent.com/mobilestack-xyz/hooks/main/src/apps/somm/assets/somm.png',
               manageUrl: cellar.strategySlug

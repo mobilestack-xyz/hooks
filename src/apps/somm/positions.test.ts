@@ -2,6 +2,7 @@ import { TFunction } from 'i18next'
 import { NetworkId } from '../../types/networkId'
 import got from '../../utils/got'
 import hook from './positions'
+import { mockDayDatas } from './testData'
 
 const mockT = ((x: string) => x) as TFunction
 
@@ -59,6 +60,7 @@ describe('hook', () => {
                     shareValue: '1050000',
                     tvlTotal: 10000000,
                     chain: 'arbitrum',
+                    dayDatas: mockDayDatas,
                   },
                 ],
               },
@@ -91,7 +93,7 @@ describe('hook', () => {
       // @ts-expect-error - displayProps can be an object or function but here it is a function and does not require arguments
       expect(sommPositions[0].displayProps()).toEqual({
         title: 'Cellar Name',
-        description: 'SYMBOL',
+        description: 'SYMBOL (APY: 9.91%)',
         imageUrl:
           'https://raw.githubusercontent.com/mobilestack-xyz/hooks/main/src/apps/somm/assets/somm.png',
         manageUrl:
