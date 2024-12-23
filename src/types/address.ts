@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Address as ZodAddress } from 'abitype/zod'
 import { Address } from 'viem'
 

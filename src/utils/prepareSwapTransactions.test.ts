@@ -22,10 +22,11 @@ jest.mock('../runtime/client', () => ({
 const mockWalletAddress = '0x2b8441ef13333ffa955c9ea5ab5b3692da95260d'
 
 const mockNativeSwapFromToken = {
-  tokenId: 'arbitrum-one:native',
+  tokenId: 'op-mainnet:native',
   isNative: true,
   amount: '1',
   decimals: 18,
+  networkId: NetworkId['op-mainnet'],
 }
 
 const mockErc20SwapFromToken = {
@@ -107,7 +108,7 @@ describe('prepareSwapTransactions', () => {
           buyIsNative: false,
           buyNetworkId: NetworkId['arbitrum-one'],
           sellIsNative: true,
-          sellNetworkId: NetworkId['arbitrum-one'],
+          sellNetworkId: NetworkId['op-mainnet'],
           sellAmount: (1e18).toString(),
           slippagePercentage: '1',
           postHook: mockPostHook,
@@ -117,7 +118,7 @@ describe('prepareSwapTransactions', () => {
     )
   })
 
-  it('prepares swap transaction from erc20 token', async () => {
+  it('prepares swap transaction from erc20 token with network id not set', async () => {
     const { transactions, dataProps } = await prepareSwapTransactions({
       networkId: NetworkId['arbitrum-one'],
       walletAddress: '0x2b8441ef13333ffa955c9ea5ab5b3692da95260d',

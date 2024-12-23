@@ -29,6 +29,8 @@ export const tokenAmountWithMetadata = z.object({
   decimals: z.number(),
   address: ZodAddressLowerCased.optional(),
   isNative: z.boolean(),
+  // this can be different for cross chain swaps, keeping it optional to be backwards compatible
+  networkId: z.nativeEnum(NetworkId).optional(),
 })
 
 export const ZodEnableAppFee = z.boolean().optional()

@@ -54,7 +54,9 @@ export async function prepareSwapTransactions({
     buyNetworkId: networkId,
     ...(swapFromToken.address && { sellToken: swapFromToken.address }),
     sellIsNative: swapFromToken.isNative,
-    sellNetworkId: networkId,
+    // use the token's networkId if present, but fallback to the networkId
+    // as older clients supporting only same chain swap and deposit won't set it.
+    sellNetworkId: swapFromToken.networkId ?? networkId,
     sellAmount: amountToSwap.toString(),
     slippagePercentage: '1',
     postHook,
