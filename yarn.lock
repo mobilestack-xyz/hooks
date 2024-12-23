@@ -369,10 +369,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bgd-labs/aave-address-book@^4.7.1":
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/@bgd-labs/aave-address-book/-/aave-address-book-4.7.1.tgz#5cda488ca5b0026a6c07ea8a467401337977361a"
-  integrity sha512-MGJb+QfQPK5YtNXlc82D+0g1BPfYCKfUQ8UGw7EJgVgHV3atCsp1V94q06fW6n4t59D9rcCHcvlUGrKhMx/aDw==
+"@bgd-labs/aave-address-book@^4.7.2":
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/@bgd-labs/aave-address-book/-/aave-address-book-4.7.2.tgz#4d5c07d7717d183ddb81444fb5aa7ea80b95f627"
+  integrity sha512-4l8nx9lQUy1h35sSiNTmT7KJ/QcaS0y85XfOv/vnU5538r0ZhGqvrv3s9lUo90QKDOOWJrf+2AW7hdZIGvU9jw==
 
 "@confio/ics23@^0.6.8":
   version "0.6.8"
