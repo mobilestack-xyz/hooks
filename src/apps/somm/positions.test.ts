@@ -109,7 +109,7 @@ describe('hook', () => {
               },
             ],
           },
-          availableShortcutIds: ['deposit'],
+          availableShortcutIds: ['deposit', 'withdraw'],
           shortcutTriggerArgs: expect.any(Function),
         },
       ])
@@ -219,7 +219,7 @@ describe('hook', () => {
               'arbitrum-one:0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8',
             yieldRates: [], // no yield rates because dayDatas (which is needed to calculate apy) is not provided in the mocked data above
           },
-          availableShortcutIds: ['deposit'],
+          availableShortcutIds: ['deposit', 'withdraw'],
           shortcutTriggerArgs: expect.any(Function),
         },
       ])
