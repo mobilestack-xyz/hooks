@@ -75,7 +75,7 @@ export async function getSommStrategiesData(networkId: NetworkId) {
       result: {
         data: {
           cellars: {
-            id: Address
+            id: string
             shareValue: string
             tvlTotal: number
             chain: string
@@ -91,24 +91,23 @@ export async function getSommStrategiesData(networkId: NetworkId) {
       // encountered without a corresponding configuration, its likely indicates
       // that a new cellar has been added. Log a warning to notify ourselves to
       // add the new cellar.
-      const address = cellar.id.split('-')[0].toLowerCase()
-      const config = cellarConfig[address]
+      const config = cellarConfig[cellar.id]
       if (cellar.chain === NETWORK_ID_TO_SOMM_CHAIN[networkId] && !config) {
         logger.warn(
-          `No config found for cellar address ${address}, this is likely a new cellar that we should add support for`,
+          `No config found for cellar id ${cellar.id}, this is likely a new cellar that we should add support for`,
         )
       }
 
       return cellar.chain === NETWORK_ID_TO_SOMM_CHAIN[networkId] && !!config
     })
     .map((cellar) => {
-      const address = cellar.id.split('-')[0].toLowerCase() as Address // some cellars have a suffix to the address (e.g. `-arbitrum`), which we do not need
       const {
         slug: strategySlug,
         estimatedApy,
         deprecated,
         apyEnabled,
-      } = cellarConfig[address]
+        address,
+      } = cellarConfig[cellar.id]
       if (!strategySlug) {
         logger.warn(`No strategy slug found for cellar address ${address}`)
       }
@@ -132,6 +131,7 @@ export async function getSommStrategiesData(networkId: NetworkId) {
 // - Config file containing the slug: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/utils/config.ts
 // - UI configuration for estimated apy: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/data/uiConfig.ts#L518-L599
 // - UI configuration for apy enabled: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/data/uiConfig.ts#L68-L99
+// - The key used in the configuration matches the cellar id defined here: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/data/cellarDataMap.ts#L87-L95
 //
 // The cellars included are filtered based on the response from the API endpoint:
 // https://app.somm.finance/api/sommelier-api-all-strategies-data
@@ -150,6 +150,7 @@ export async function getSommStrategiesData(networkId: NetworkId) {
 const cellarConfig: Record<
   string,
   {
+    address: Address
     slug: string | undefined
     estimatedApy?: number
     deprecated: boolean
@@ -157,177 +158,216 @@ const cellarConfig: Record<
   }
 > = {
   '0x0274a704a6d9129f90a62ddc6f6024b33ecdad36': {
+    address: '0x0274a704a6d9129f90a62ddc6f6024b33ecdad36',
     slug: 'Real-Yield-BTC',
     deprecated: false,
     apyEnabled: true,
   },
   '0x03df2a53cbed19b824347d6a45d09016c2d1676a': {
+    address: '0x03df2a53cbed19b824347d6a45d09016c2d1676a',
     slug: 'DeFi-Stars',
     deprecated: false,
     apyEnabled: false,
   },
   '0x05641a27c82799aaf22b436f20a3110410f29652': {
+    address: '0x05641a27c82799aaf22b436f20a3110410f29652',
     slug: 'Steady-MATIC',
     deprecated: true,
     apyEnabled: false,
   },
   '0x0c190ded9be5f512bd72827bdad4003e9cc7975c': {
+    address: '0x0c190ded9be5f512bd72827bdad4003e9cc7975c',
     slug: 'Turbo-GHO',
     deprecated: true,
     apyEnabled: true,
   },
   '0x18ea937aba6053bc232d9ae2c42abe7a8a2be440': {
+    address: '0x18ea937aba6053bc232d9ae2c42abe7a8a2be440',
     slug: 'Real-Yield-ENS',
     estimatedApy: 1.9,
     deprecated: false,
     apyEnabled: true,
   },
   '0x19b8d8fc682fc56fbb42653f68c7d48dd3fe597e': {
+    address: '0x19b8d8fc682fc56fbb42653f68c7d48dd3fe597e',
     slug: 'Turbo-ETHx',
     estimatedApy: 6,
     deprecated: true,
     apyEnabled: true,
   },
   '0x1dffb366b5c5a37a12af2c127f31e8e0ed86bdbe': {
+    address: '0x1dffb366b5c5a37a12af2c127f31e8e0ed86bdbe',
     slug: 'Turbo-rsETH',
     estimatedApy: 8,
     deprecated: true,
     apyEnabled: true,
   },
   '0x27500de405a3212d57177a789e30bb88b0adbec5': {
+    address: '0x27500de405a3212d57177a789e30bb88b0adbec5',
     slug: 'Turbo-ezETH',
     estimatedApy: 6,
     deprecated: true,
     apyEnabled: true,
   },
   '0x3f07a84ecdf494310d397d24c1c78b041d2fa622': {
+    address: '0x3f07a84ecdf494310d397d24c1c78b041d2fa622',
     slug: 'Steady-ETH',
     deprecated: true,
     apyEnabled: false,
   },
   '0x4068bdd217a45f8f668ef19f1e3a1f043e4c4934': {
+    address: '0x4068bdd217a45f8f668ef19f1e3a1f043e4c4934',
     slug: 'Real-Yield-LINK',
     deprecated: false,
     apyEnabled: true,
   },
   '0x4986fd36b6b16f49b43282ee2e24c5cf90ed166d': {
+    address: '0x4986fd36b6b16f49b43282ee2e24c5cf90ed166d',
     slug: 'Steady-BTC',
     deprecated: true,
     apyEnabled: false,
   },
   '0x6a6af5393dc23d7e3db28d28ef422db7c40932b6': {
+    address: '0x6a6af5393dc23d7e3db28d28ef422db7c40932b6',
     slug: 'Real-Yield-UNI',
     estimatedApy: 2.6,
     deprecated: false,
     apyEnabled: true,
   },
   '0x6e2dac3b9e9adc0cbbae2d0b9fd81952a8d33872': {
+    address: '0x6e2dac3b9e9adc0cbbae2d0b9fd81952a8d33872',
     slug: 'ETH-BTC-Momentum',
     deprecated: true,
     apyEnabled: false,
   },
   '0x6f069f711281618467dae7873541ecc082761b33': {
+    address: '0x6f069f711281618467dae7873541ecc082761b33',
     slug: 'Steady-UNI',
     deprecated: true,
     apyEnabled: false,
   },
   '0x6b7f87279982d919bbf85182ddeab179b366d8f2': {
+    address: '0x6b7f87279982d919bbf85182ddeab179b366d8f2',
     slug: 'ETH-BTC-Trend',
     deprecated: true,
     apyEnabled: false,
   },
   '0x6c1edce139291af5b84fb1e496c9747f83e876c9': {
+    address: '0x6c1edce139291af5b84fb1e496c9747f83e876c9',
     slug: 'Turbo-divETH',
     estimatedApy: 4,
     deprecated: true,
     apyEnabled: true,
   },
   '0x6c51041a91c91c86f3f08a72cb4d3f67f1208897': {
+    address: '0x6c51041a91c91c86f3f08a72cb4d3f67f1208897',
     slug: 'ETH-Trend-Growth',
     deprecated: false,
     apyEnabled: false,
   },
   '0x7bad5df5e11151dc5ee1a648800057c5c934c0d5': {
+    address: '0x7bad5df5e11151dc5ee1a648800057c5c934c0d5',
     slug: 'AAVE',
     deprecated: true,
     apyEnabled: false,
   },
   '0x97e6e0a40a3d02f12d1cec30ebfbae04e37c119e': {
+    address: '0x97e6e0a40a3d02f12d1cec30ebfbae04e37c119e',
     slug: 'Real-Yield-USD',
     deprecated: false,
     apyEnabled: true,
   },
   '0x9a7b4980c6f0fcaa50cd5f288ad7038f434c692e': {
+    address: '0x9a7b4980c6f0fcaa50cd5f288ad7038f434c692e',
     slug: 'Turbo-eETH',
     estimatedApy: 6,
     deprecated: true,
     apyEnabled: true,
   },
   '0xc7b69e15d86c5c1581dacce3cacaf5b68cd6596f': {
+    address: '0xc7b69e15d86c5c1581dacce3cacaf5b68cd6596f',
     slug: 'Real-Yield-1Inch',
     estimatedApy: 1.6,
     deprecated: false,
     apyEnabled: true,
   },
   '0xdbe19d1c3f21b1bb250ca7bdae0687a97b5f77e6': {
+    address: '0xdbe19d1c3f21b1bb250ca7bdae0687a97b5f77e6',
     slug: 'Fraximal',
     deprecated: false,
     apyEnabled: true,
   },
   '0xb5b29320d2dde5ba5bafa1ebcd270052070483ec': {
+    address: '0xb5b29320d2dde5ba5bafa1ebcd270052070483ec',
     slug: 'Real-Yield-ETH',
     deprecated: false,
     apyEnabled: true,
   },
   '0xc7372ab5dd315606db799246e8aa112405abaeff': {
+    address: '0xc7372ab5dd315606db799246e8aa112405abaeff',
     slug: 'Turbo-STETH-(steth-deposit)',
     deprecated: false,
     apyEnabled: true,
   },
   '0xcbf2250f33c4161e18d4a2fa47464520af5216b5': {
+    address: '0xcbf2250f33c4161e18d4a2fa47464520af5216b5',
     slug: 'Real-Yield-SNX',
     estimatedApy: 3.7,
     deprecated: false,
     apyEnabled: true,
   },
   '0xcf4b531b4cde95bd35d71926e09b2b54c564f5b6': {
+    address: '0xcf4b531b4cde95bd35d71926e09b2b54c564f5b6',
     slug: 'Morpho-ETH',
     deprecated: false,
     apyEnabled: true,
   },
   '0xd33dad974b938744dac81fe00ac67cb5aa13958e': {
+    address: '0xd33dad974b938744dac81fe00ac67cb5aa13958e',
     slug: 'Turbo-SWETH',
     deprecated: true,
     apyEnabled: true,
   },
   '0xdadc82e26b3739750e036dfd9defd3ed459b877a': {
+    address: '0xdadc82e26b3739750e036dfd9defd3ed459b877a',
     slug: 'Turbo-eETHV2',
     estimatedApy: 6,
     deprecated: true,
     apyEnabled: true,
   },
   '0xfd6db5011b171b05e1ea3b92f9eacaeeb055e971': {
+    address: '0xfd6db5011b171b05e1ea3b92f9eacaeeb055e971',
     slug: 'Turbo-STETH',
     deprecated: false,
     apyEnabled: true,
   },
-  '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8': {
+  '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8-arbitrum': {
+    address: '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8',
     slug: 'real-yield-usd-arb',
     deprecated: false,
     apyEnabled: true,
   },
-  '0xa73b0b48e26e4b8b24cead149252cc275dee99a6': {
+  '0xa73b0b48e26e4b8b24cead149252cc275dee99a6-arbitrum': {
+    address: '0xa73b0b48e26e4b8b24cead149252cc275dee99a6',
     slug: 'Real-Yield-USD-Arbitrum',
     deprecated: false,
     apyEnabled: true,
   },
-  '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c': {
+  '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c-arbitrum': {
+    address: '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c',
+    slug: 'real-yield-eth-arb',
+    deprecated: false,
+    apyEnabled: true,
+  },
+  '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c-optimism': {
+    address: '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c',
     slug: 'real-yield-eth-opt',
     estimatedApy: 15,
     deprecated: false,
     apyEnabled: true,
   },
-  '0xd3bb04423b0c98abc9d62f201212f44dc2611200': {
+  '0xd3bb04423b0c98abc9d62f201212f44dc2611200-scroll': {
+    address: '0xd3bb04423b0c98abc9d62f201212f44dc2611200',
     slug: 'real-yield-eth-scroll',
     estimatedApy: 15,
     deprecated: false,

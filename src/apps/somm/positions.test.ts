@@ -56,7 +56,7 @@ describe('hook', () => {
               data: {
                 cellars: [
                   {
-                    id: '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8-arb',
+                    id: '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8-arbitrum',
                     shareValue: '1050000',
                     tvlTotal: 10000000,
                     chain: 'arbitrum',
@@ -119,7 +119,7 @@ describe('hook', () => {
               data: {
                 cellars: [
                   {
-                    id: '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8-arb',
+                    id: '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8-arbitrum',
                     shareValue: '1050000',
                     tvlTotal: 10000000,
                     chain: 'arbitrum',
@@ -148,13 +148,13 @@ describe('hook', () => {
               data: {
                 cellars: [
                   {
-                    id: '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8-arb',
+                    id: '0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8-arbitrum',
                     shareValue: '1050000',
                     tvlTotal: 10000000,
                     chain: 'arbitrum',
                   },
                   {
-                    id: '0xcellarAddressThatResultsInReadError-arb',
+                    id: '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c-unknown', // mockReadContract will fail on this address
                     shareValue: '1050000',
                     tvlTotal: 10000000,
                     chain: 'arbitrum',
