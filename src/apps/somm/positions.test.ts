@@ -154,7 +154,7 @@ describe('hook', () => {
                     chain: 'arbitrum',
                   },
                   {
-                    id: '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c-arbitrum', // mockReadContract will fail on this address
+                    id: '0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c-unknown', // mockReadContract will fail on this address
                     shareValue: '1050000',
                     tvlTotal: 10000000,
                     chain: 'arbitrum',
