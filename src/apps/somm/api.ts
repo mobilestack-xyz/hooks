@@ -131,6 +131,7 @@ export async function getSommStrategiesData(networkId: NetworkId) {
 // - Config file containing the slug: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/utils/config.ts
 // - UI configuration for estimated apy: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/data/uiConfig.ts#L518-L599
 // - UI configuration for apy enabled: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/data/uiConfig.ts#L68-L99
+// - The key used in the configuration matches the cellar id defined here: https://github.com/PeggyJV/sommelier-strangelove/blob/ca7bd6605bc868a1393d820f13b341ae5a5f1ead/src/data/cellarDataMap.ts#L87-L95
 //
 // The cellars included are filtered based on the response from the API endpoint:
 // https://app.somm.finance/api/sommelier-api-all-strategies-data
