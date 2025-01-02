@@ -111,6 +111,47 @@ const hook: ShortcutsHook = {
           return { transactions }
         },
       }),
+      createShortcut({
+        id: 'withdraw',
+        name: 'Withdraw',
+        description: 'Withdraw your assets',
+        networkIds: [networkId],
+        category: 'withdraw',
+        triggerInputShape: {
+          tokens: tokenAmounts.length(1),
+          // these two will be passed in the shortcutTriggerArgs.
+          positionAddress: ZodAddressLowerCased,
+          tokenDecimals: z.coerce.number(),
+        },
+        async onTrigger({
+          networkId,
+          address,
+          tokens,
+          positionAddress,
+          tokenDecimals,
+        }) {
+          const walletAddress = address as Address
+          const amountToWithdraw = parseUnits(tokens[0].amount, tokenDecimals)
+
+          // We rely on the client to pass the correct token amount, especially
+          // for liquidation withdrawals. The `maxRedeem` method on the cellar
+          // contract doesn't seem to work as expected (see example:
+          // https://arbiscan.io/tx/0xd4528444960526ca93874ed86c6637b4ca17df079d71f44267f1b6e6ef56868d).
+          // It's also not used in the Somm front-end code.
+          const withdrawTx: Transaction = {
+            networkId,
+            from: walletAddress,
+            to: positionAddress,
+            data: encodeFunctionData({
+              abi: cellarV0821Abi,
+              functionName: 'redeem',
+              args: [amountToWithdraw, walletAddress, walletAddress],
+            }),
+          }
+
+          return { transactions: [withdrawTx] }
+        },
+      }),
     ]
   },
 }

@@ -138,11 +138,15 @@ const hook: PositionsHook = {
               networkId,
             }),
           },
-          availableShortcutIds: ['deposit'],
+          availableShortcutIds: ['deposit', 'withdraw'],
           shortcutTriggerArgs: () => {
             return {
               deposit: {
                 tokenAddress: underlyingAsset.toLowerCase(),
+                tokenDecimals: cellarDecimals,
+                positionAddress: cellar.address.toLowerCase(),
+              },
+              withdraw: {
                 tokenDecimals: cellarDecimals,
                 positionAddress: cellar.address.toLowerCase(),
               },

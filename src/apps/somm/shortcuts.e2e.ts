@@ -7,7 +7,6 @@ describe('getShortcutDefinitions', () => {
       NetworkId['arbitrum-one'],
     )
     expect(shortcuts.length).toBeGreaterThan(0)
-    expect(shortcuts[0].id).toBe('deposit')
   })
 
   describe('deposit.onTrigger', () => {
@@ -33,6 +32,31 @@ describe('getShortcutDefinitions', () => {
       })
 
       expect(transactions.length).toEqual(2)
+    })
+  })
+
+  describe('withdraw.onTrigger', () => {
+    it('should return transactions', async () => {
+      const shortcuts = await hook.getShortcutDefinitions(
+        NetworkId['arbitrum-one'],
+      )
+      const shortcut = shortcuts.find((shortcut) => shortcut.id === 'withdraw')
+      expect(shortcut).toBeDefined()
+
+      const { transactions } = await shortcut!.onTrigger({
+        networkId: NetworkId['arbitrum-one'],
+        address: '0x2b8441ef13333ffa955c9ea5ab5b3692da95260d',
+        tokens: [
+          {
+            tokenId: 'arbitrum-one:0xb9A27ba529634017b12e3cbbbFFb6dB7908a8C8B',
+            amount: '1',
+          },
+        ],
+        positionAddress: '0xa73b0b48e26e4b8b24cead149252cc275dee99a6', // RYUSD
+        tokenDecimals: 6,
+      })
+
+      expect(transactions.length).toEqual(1)
     })
   })
 })
