@@ -1,7 +1,7 @@
 # This is interestingly not set for us in the Cloud Function environment
 GOOGLE_CLOUD_PROJECT: celo-mobile-mainnet
 POSITION_IDS: 'curve,beefy,gooddollar,hedgey,locked-celo,mento,moola,stake-dao,ubeswap,uniswap,allbridge,aave,walletconnect,somm'
-SHORTCUT_IDS: 'gooddollar,hedgey,ubeswap,allbridge,aave'
+SHORTCUT_IDS: 'gooddollar,hedgey,ubeswap,allbridge,aave,somm'
 GET_TOKENS_INFO_URL: 'https://api.mainnet.valora.xyz/getTokensInfoWithPrices'
 EARN_SUPPORTED_NETWORK_IDS: 'arbitrum-one,celo-mainnet'
 SIMULATE_TRANSACTIONS_URL: 'https://api.mainnet.valora.xyz/simulateTransactions'
