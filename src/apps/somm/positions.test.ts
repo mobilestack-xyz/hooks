@@ -27,6 +27,9 @@ describe('hook', () => {
         if (functionName === 'asset') {
           return '0xUnderlyingAsset'
         }
+        if (functionName === 'decimals') {
+          return 18
+        }
         if (functionName === 'symbol') {
           return 'SYMBOL'
         }
@@ -74,7 +77,7 @@ describe('hook', () => {
         t: mockT,
       })
 
-      expect(mockReadContract).toHaveBeenCalledTimes(4)
+      expect(mockReadContract).toHaveBeenCalledTimes(5)
       expect(sommPositions).toEqual([
         {
           type: 'app-token-definition',
@@ -88,6 +91,26 @@ describe('hook', () => {
             },
           ],
           displayProps: expect.any(Function),
+          dataProps: {
+            cantSeparateCompoundedInterest: true,
+            depositTokenId: 'arbitrum-one:0xunderlyingasset',
+            earningItems: [],
+            manageUrl:
+              'https://app.somm.finance/strategies/real-yield-usd-arb/manage',
+            termsUrl: 'https://app.somm.finance/user-terms',
+            tvl: '10000000',
+            withdrawTokenId:
+              'arbitrum-one:0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8',
+            yieldRates: [
+              {
+                label: 'yieldRates.netApyWithAverage',
+                percentage: 9.90525301915644,
+                tokenId: 'arbitrum-one:0xunderlyingasset',
+              },
+            ],
+          },
+          availableShortcutIds: ['deposit'],
+          shortcutTriggerArgs: expect.any(Function),
         },
       ])
       // @ts-expect-error - displayProps can be an object or function but here it is a function and does not require arguments
@@ -184,6 +207,20 @@ describe('hook', () => {
             },
           ],
           displayProps: expect.any(Function),
+          dataProps: {
+            cantSeparateCompoundedInterest: true,
+            depositTokenId: 'arbitrum-one:0xunderlyingasset',
+            earningItems: [],
+            manageUrl:
+              'https://app.somm.finance/strategies/real-yield-usd-arb/manage',
+            termsUrl: 'https://app.somm.finance/user-terms',
+            tvl: '10000000',
+            withdrawTokenId:
+              'arbitrum-one:0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8',
+            yieldRates: [], // no yield rates because dayDatas (which is needed to calculate apy) is not provided in the mocked data above
+          },
+          availableShortcutIds: ['deposit'],
+          shortcutTriggerArgs: expect.any(Function),
         },
       ])
     })

@@ -2,7 +2,7 @@ import { Address } from 'viem'
 import { logger } from '../../log'
 import { getClient } from '../../runtime/client'
 import { getTokenId } from '../../runtime/getTokenId'
-import { toDecimalNumber } from '../../types/numbers'
+import { toDecimalNumber, toSerializedDecimalNumber } from '../../types/numbers'
 import {
   PositionDefinition,
   PositionsHook,
@@ -12,13 +12,15 @@ import {
 import { cellarV0821Abi } from './abis/cellar'
 import { getSommStrategiesData } from './api'
 
+const SOMM_TERMS_URL = 'https://app.somm.finance/user-terms'
+
 const hook: PositionsHook = {
   getInfo() {
     return {
       name: 'Somm',
     }
   },
-  async getPositionDefinitions({ networkId, address }) {
+  async getPositionDefinitions({ networkId, address, t }) {
     const client = getClient(networkId)
     const cellars = await getSommStrategiesData(networkId)
     const positionDefinitions: PositionDefinition[] = []
@@ -46,26 +48,43 @@ const hook: PositionsHook = {
           }
         }
 
-        const [underlyingAsset, underlyingAssetSymbol, cellarName] =
-          await Promise.all([
-            client.readContract({
-              address: cellar.address,
-              abi: cellarV0821Abi,
-              functionName: 'asset',
-            }),
-            client.readContract({
-              address: cellar.address,
-              abi: cellarV0821Abi,
-              functionName: 'symbol',
-            }),
-            client.readContract({
-              address: cellar.address,
-              abi: cellarV0821Abi,
-              functionName: 'name',
-            }),
-          ])
+        const [
+          underlyingAsset,
+          underlyingAssetSymbol,
+          cellarName,
+          cellarDecimals,
+        ] = await Promise.all([
+          client.readContract({
+            address: cellar.address,
+            abi: cellarV0821Abi,
+            functionName: 'asset',
+          }),
+          client.readContract({
+            address: cellar.address,
+            abi: cellarV0821Abi,
+            functionName: 'symbol',
+          }),
+          client.readContract({
+            address: cellar.address,
+            abi: cellarV0821Abi,
+            functionName: 'name',
+          }),
+          client.readContract({
+            address: cellar.address,
+            abi: cellarV0821Abi,
+            functionName: 'decimals',
+          }),
+        ])
 
-        return {
+        const manageUrl = cellar.strategySlug
+          ? `https://app.somm.finance/strategies/${cellar.strategySlug}/manage`
+          : undefined
+        const underlyingTokenId = getTokenId({
+          address: underlyingAsset.toLowerCase(),
+          networkId,
+        })
+
+        const result = {
           type: 'app-token-definition' as const,
           pricePerShare: async ({ tokensByTokenId }: PricePerShareContext) => {
             const tokenId = getTokenId({
@@ -93,12 +112,44 @@ const hook: PositionsHook = {
               }`,
               imageUrl:
                 'https://raw.githubusercontent.com/mobilestack-xyz/hooks/main/src/apps/somm/assets/somm.png',
-              manageUrl: cellar.strategySlug
-                ? `https://app.somm.finance/strategies/${cellar.strategySlug}/manage`
-                : undefined,
+              manageUrl,
+            }
+          },
+          dataProps: {
+            termsUrl: SOMM_TERMS_URL,
+            manageUrl,
+            tvl: toSerializedDecimalNumber(cellar.tvlTotal),
+            yieldRates: [
+              ...(cellar.apy
+                ? [
+                    {
+                      percentage: cellar.apy,
+                      label: t('yieldRates.netApyWithAverage', { numDays: 30 }),
+                      tokenId: underlyingTokenId,
+                    },
+                  ]
+                : []),
+            ],
+            cantSeparateCompoundedInterest: true,
+            earningItems: [],
+            depositTokenId: underlyingTokenId,
+            withdrawTokenId: getTokenId({
+              address: cellar.address,
+              networkId,
+            }),
+          },
+          availableShortcutIds: ['deposit'],
+          shortcutTriggerArgs: () => {
+            return {
+              deposit: {
+                tokenAddress: underlyingAsset.toLowerCase(),
+                tokenDecimals: cellarDecimals,
+                positionAddress: cellar.address.toLowerCase(),
+              },
             }
           },
         }
+        return result
       }),
     )
 
