@@ -28,6 +28,8 @@ const DEFAULT_EARN_SUPPORTED_POSITION_IDS = new Set([
   `${NetworkId['arbitrum-sepolia']}:0x460b97bd498e1157530aeb3086301d5225b91216`,
   // Allbridge USDT
   `${NetworkId['celo-mainnet']}:0xfb2c7c10e731ebe96dabdf4a96d656bfe8e2b5af`,
+  // Somm Real Yield ETH
+  `${NetworkId['op-mainnet']}:0xc47bb288178ea40bf520a91826a3dee9e0dbfa4c`,
 ])
 
 // Copied over from https://github.com/valora-inc/valora-rest-api/blob/main/src/middleware/requestMetadata.ts#L65
