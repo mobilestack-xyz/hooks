@@ -1,7 +1,8 @@
 {
   "yieldRates": {
     "earningsApy": "Earnings APY",
-    "earningsApr": "Earnings APR"
+    "earningsApr": "Earnings APR",
+    "netApyWithAverage": "APY ({{numDays}} day average)"
   },
   "earningItems": {
     "rewards": "Rewards",

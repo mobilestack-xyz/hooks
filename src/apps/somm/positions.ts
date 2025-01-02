@@ -124,7 +124,7 @@ const hook: PositionsHook = {
                 ? [
                     {
                       percentage: cellar.apy,
-                      label: t('yieldRates.earningsApy'),
+                      label: t('yieldRates.netApyWithAverage', { numDays: 30 }),
                       tokenId: underlyingTokenId,
                     },
                   ]

@@ -103,7 +103,7 @@ describe('hook', () => {
               'arbitrum-one:0x392b1e6905bb8449d26af701cdea6ff47bf6e5a8',
             yieldRates: [
               {
-                label: 'yieldRates.earningsApy',
+                label: 'yieldRates.netApyWithAverage',
                 percentage: 9.90525301915644,
                 tokenId: 'arbitrum-one:0xunderlyingasset',
               },
