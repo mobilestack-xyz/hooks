@@ -104,7 +104,13 @@ const beefyAppTokenDefinition = ({
         networkId,
       })
       const { decimals } = tokensByTokenId[tokenId]
-      return [toDecimalNumber(BigInt(vault.pricePerFullShare), decimals)]
+      return [
+        toDecimalNumber(
+          // pricePerShare can potentially be a string in scientific notation, so convert to Number, round and then to BigInt
+          BigInt(Math.round(Number(vault.pricePerFullShare))),
+          decimals,
+        ),
+      ]
     },
     dataProps: {
       depositTokenId: getTokenId({
