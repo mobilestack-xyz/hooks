@@ -26,7 +26,7 @@ describe('getShortcutDefinitions', () => {
         positionAddress: '0xa73b0b48e26e4b8b24cead149252cc275dee99a6', // RYUSD
         tokens: [
           {
-            tokenId: `${NetworkId['arbitrum-one']}:0xaf88d065e77c8cc2239327c5edb3a432268e5831`,
+            tokenId: 'arbitrum-one:0xaf88d065e77c8cc2239327c5edb3a432268e5831',
             amount: '10',
           },
         ],
