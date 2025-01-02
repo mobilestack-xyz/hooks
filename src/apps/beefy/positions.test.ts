@@ -9,6 +9,8 @@ import {
 import hook, { getDailyYieldRatePercentage } from './positions'
 import { NetworkId } from '../../types/networkId'
 import { Address } from 'viem'
+import { AppTokenPositionDefinition } from '../../types/positions'
+import BigNumber from 'bignumber.js'
 
 const mockT = ((x: string) => x) as TFunction
 
@@ -63,7 +65,7 @@ const mockBeefyVault2: BaseBeefyVault = {
   tokenAddress: '0x111111111' as Address,
   createdAt: 135790,
   earnedTokenAddress: '0x999999999' as Address,
-  pricePerFullShare: '100000',
+  pricePerFullShare: '1e+5',
 }
 
 const mockBeefyVaults = {
@@ -245,5 +247,31 @@ describe('hook', () => {
       t: mockT,
     })
     expect(beefyPositions).toEqual([])
+  })
+  it('should return correct price per share', async () => {
+    const mockPricePerShareContext = {
+      tokensByTokenId: {
+        'arbitrum-one:0x123456789': { decimals: 6 },
+        'arbitrum-one:0x111111111': { decimals: 3 },
+      },
+    }
+    const beefyPositions = await hook.getPositionDefinitions({
+      networkId: NetworkId['arbitrum-one'],
+      address: undefined,
+      t: mockT,
+    })
+    expect(beefyPositions.length).toBe(2)
+
+    const pricePerShare0 = (beefyPositions[0] as AppTokenPositionDefinition)
+      .pricePerShare as Function
+    const pricePerShare1 = (beefyPositions[1] as AppTokenPositionDefinition)
+      .pricePerShare as Function
+
+    expect(await pricePerShare0(mockPricePerShareContext)).toEqual([
+      BigNumber('120'),
+    ])
+    expect(await pricePerShare1(mockPricePerShareContext)).toEqual([
+      BigNumber('100'),
+    ])
   })
 })
