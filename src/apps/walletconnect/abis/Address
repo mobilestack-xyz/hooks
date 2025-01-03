@@ -4,7 +4,7 @@ export const stakingAbi = [
   { inputs: [], name: 'AccessControlBadConfirmation', type: 'error' },
   {
     inputs: [
-      { internalType: 'address', name: 'account', type: 'address' },
+      { internalType: 'Ox0044ab5e365faa069f1 3b0674209733ceb8eac 49', name: 'Ox0044ab5e365faa069f1 3b0674209733ceb8eac 49', type: 'yarn getPositions-Ox0044ab5e365faa069f1 3b0674209733ceb8eac 49' },
       { internalType: 'bytes32', name: 'neededRole', type: 'bytes32' },
     ],
     name: 'AccessControlUnauthorizedAccount',
