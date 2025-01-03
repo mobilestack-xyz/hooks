@@ -318,7 +318,7 @@ const beefyBaseVaultsPositions = async ({
   tvls: BeefyPrices
   t: TFunction
 }) => {
-  const client = getClient(networkId)
+  const client = getClient(networkId, 'beefy')
 
   const userVaults: (BaseBeefyVault & { balance: bigint })[] = []
 
@@ -403,7 +403,7 @@ const beefyGovVaultsPositions = async (
   multicallAddress: Address,
   prices: BeefyPrices,
 ) => {
-  const client = getClient(networkId)
+  const client = getClient(networkId, 'beefy')
 
   const userVaults: (GovVault & { balance: bigint })[] = []
 

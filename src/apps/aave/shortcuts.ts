@@ -67,7 +67,7 @@ const hook: ShortcutsHook = {
           // amount in smallest unit
           const amountToSupply = parseUnits(tokens[0].amount, tokenDecimals)
 
-          const client = getClient(networkId)
+          const client = getClient(networkId, 'aave')
 
           const approvedAllowanceForSpender = await client.readContract({
             address: tokenAddress,
@@ -154,7 +154,7 @@ const hook: ShortcutsHook = {
             ? maxUint256
             : parseUnits(tokens[0].amount, tokenDecimals)
 
-          const client = getClient(networkId)
+          const client = getClient(networkId, 'aave')
 
           const underlyingAssetAddress = await client.readContract({
             address: tokenAddress,
@@ -190,7 +190,7 @@ const hook: ShortcutsHook = {
         async onTrigger({ networkId, address }) {
           const walletAddress = address as Address
 
-          const client = getClient(networkId)
+          const client = getClient(networkId, 'aave')
 
           // Get a/v/sToken for which we can claim rewards
           const reserveIncentiveData = await client.readContract({

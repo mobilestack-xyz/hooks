@@ -14,4 +14,5 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/scripts/loadProductionEnvVars.ts'],
   setupFilesAfterEnv: ['<rootDir>/jest.e2e.setup.js'],
+  globalTeardown: '<rootDir>/scripts/teardown.js'
 }

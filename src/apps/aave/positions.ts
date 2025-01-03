@@ -56,7 +56,7 @@ const hook: PositionsHook = {
       return []
     }
 
-    const client = getClient(networkId)
+    const client = getClient(networkId, 'aave')
 
     const [reservesData] = await client.readContract({
       address: aaveAddresses.uiPoolDataProvider,
