@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "ผลตอบแทน",
     "earnings": "รายได้"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "สินทรัพย์",
+    "Categry-Platform": "แพลตฟอร์ม",
+    "Complexity-Low-Titl": "กลยุทธ์ซึ่งมีความซับซ้อนต่ำ",
+    "Complexity-Mid-Titl": "กลยุทธ์ซึ่งมีความซับซ้อนปานกลาง",
+    "Complexity-Hi-Titl": "กลยุทธ์ซึ่งมีความซับซ้อนสูง",
+    "Testd-Battle-Titl": "กลยุทธ์คือการต่อสู้ที่ผ่านการทดสอบ",
+    "Testd-New-Titl": "กลยุทธ์เป็นสิ่งใหม่",
+    "Testd-Experimtl-Titl": "กลยุทธ์คือการทดลอง",
+    "IL-None-Titl": "IL ที่คาดหวังต่ำมากหรือเท่ากับศูนย์",
+    "IL-Low-Titl": "IL ที่คาดหวังต่ำ",
+    "IL-High-Titl": "IL ที่คาดหวังสูง",
+    "IL-AlgoStable-Titl": "ความเสี่ยง IL แบบแบ่งขั้วคงที่ตามอัลกอริทึม",
+    "OverCollatAlgoStable-Titl": "Stablecoin แบบอัลกอริทึมที่มีสัดส่วนการค้ำประกันเกิน",
+    "PartialCollatAlgoStable-Titl": "Stablecoin แบบอัลกอริทึมที่มีสัดส่วนการค้ำประกันบางส่วน",
+    "Liquidt-High-Titl": "สินทรัพย์มีสภาพคล่องสูง",
+    "Liquidt-Low-Titl": "สินทรัพย์มีสภาพคล่องต่ำ",
+    "MktCap-Large-Titl": "มูลค่าตามราคาตลาดสูง ความผันผวนของสินทรัพย์ต่ำ",
+    "MktCap-Mid-Titl": "มูลค่าตามราคาตลาดปานกลาง ความผันผวนของสินทรัพย์อยู่ในเกณฑ์ปานกลาง",
+    "MktCap-Small-Titl": "มูลค่าตามราคาตลาดน้อย ความผันผวนของสินทรัพย์สูง",
+    "MktCap-Micro-Titl": "มูลค่าตามราคาตลาดน้อยมากๆ ความผันผวนของสินทรัพย์สูงมาก",
+    "Concentrated-Titl": "เน้นให้ความสำคัญกับอุปทานด้านสินทรัพย์",
+    "Platfrm-Establshd-Titl": "แพลตฟอร์มที่มีบันทึกการติดตามที่ทราบ",
+    "Platfrm-New-Titl": "แพลตฟอร์มที่มีบันทึกการติดตามเล็กน้อยหรือไม่มีเลย",
+    "Platfrm-AuditNo-Titl": "ไม่มีการจัดตั้งการตรวจสอบบัญชี",
+    "Platfrm-Audit-Titl": "แพลตฟอร์มซึ่งได้รับการตรวจสอบบัญชีจากผู้ตรวจสอบที่ไว้วางใจ",
+    "Platfrm-Verified-Titl": "สัญญาโครงการได้รับการตรวจสอบยืนยันแล้ว",
+    "Platfrm-VerifiedNo-Titl": "สัญญาโครงการไม่มีการเผยแพร่ต่อสาธารณะ (ยังไม่ได้รับการตรวจสอบยืนยัน)",
+    "Platfrm-Timelock-Titl": "ฟังก์ชันอันตรายถูกหน่วงเวลาไว้",
+    "Platfrm-TimelockShort-Titl": "ฟังก์ชันอันตรายถูกหน่วงเวลาให้ล่าช้าเล็กน้อย",
+    "Platfrm-TimelockNo-Titl": "ฟังก์ชันอันตรายไม่ได้รับการหน่วงเวลาไว้"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT locked until {{date}}"
+    }
   }
 }

@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Recompensas",
     "earnings": "Ganancias"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Activo",
+    "Categry-Platform": "Plataforma",
+    "Complexity-Low-Titl": "Estrategia de baja complejidad",
+    "Complexity-Mid-Titl": "Estrategia de complejidad media",
+    "Complexity-Hi-Titl": "Estrategia de alta complejidad",
+    "Testd-Battle-Titl": "La estrategia está comprobada",
+    "Testd-New-Titl": "La estrategia es nueva",
+    "Testd-Experimtl-Titl": "La estrategia es experimental",
+    "IL-None-Titl": "IL esperada muy baja o cero",
+    "IL-Low-Titl": "Baja IL esperada",
+    "IL-High-Titl": "Alta IL esperada",
+    "IL-AlgoStable-Titl": "Algoritmo estable, riesgo IL polarizado",
+    "OverCollatAlgoStable-Titl": "Stablecoin algorítmica sobrefinanciada",
+    "PartialCollatAlgoStable-Titl": "Stablecoin algorítmica parcialmente financiada",
+    "Liquidt-High-Titl": "Elevada liquidez de los activos",
+    "Liquidt-Low-Titl": "Baja liquidez de los activos",
+    "MktCap-Large-Titl": "Activo de alta capitalización bursátil y menor volatilidad",
+    "MktCap-Mid-Titl": "Activo de media capitalización bursátil y volatilidad promedio",
+    "MktCap-Small-Titl": "Activo de pequeña capitalización bursátil y alta volatilidad",
+    "MktCap-Micro-Titl": "Activo de micro capitalización bursátil y extrema volatilidad",
+    "Concentrated-Titl": "Suministro concentrado de activos",
+    "Platfrm-Establshd-Titl": "Plataforma con trayectoria conocida",
+    "Platfrm-New-Titl": "Plataforma con poca o ninguna trayectoria",
+    "Platfrm-AuditNo-Titl": "Ninguna auditoría establecida",
+    "Platfrm-Audit-Titl": "Plataforma auditada por revisor de confianza",
+    "Platfrm-Verified-Titl": "Se verifican los contratos del proyecto",
+    "Platfrm-VerifiedNo-Titl": "Contratos de proyectos no públicos (sin verificar)",
+    "Platfrm-Timelock-Titl": "Funciones peligrosas temporizadas",
+    "Platfrm-TimelockShort-Titl": "Funciones peligrosas temporizadas con breve retardo",
+    "Platfrm-TimelockNo-Titl": "Función peligrosa no temporizada"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Protocolos de staking",
+      "description": "{{amount}} WCT bloqueado hasta {{date}}"
+    }
   }
 }

@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Винагорода",
     "earnings": "Прибуток"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Актив",
+    "Categry-Platform": "Платформа",
+    "Complexity-Low-Titl": "Стратегія низької складності",
+    "Complexity-Mid-Titl": "Стратегія середньої складності",
+    "Complexity-Hi-Titl": "Стратегія високої складності",
+    "Testd-Battle-Titl": "Перевірена стратегія",
+    "Testd-New-Titl": "Нова стратегія",
+    "Testd-Experimtl-Titl": "Експериментальна стратегія",
+    "IL-None-Titl": "Очікувана IL дуже низька або нульова",
+    "IL-Low-Titl": "Низька очікувана IL",
+    "IL-High-Titl": "Висока очікувана IL",
+    "IL-AlgoStable-Titl": "Алгоритмічно стабільний, поляризований ризик IL",
+    "OverCollatAlgoStable-Titl": "Алгоритмічний стейблкоїн із надмірним забезпеченням",
+    "PartialCollatAlgoStable-Titl": "Алгоритмічний стейблкоїн із частковим забезпеченням",
+    "Liquidt-High-Titl": "Висока ліквідність активів",
+    "Liquidt-Low-Titl": "Низька ліквідність активів",
+    "MktCap-Large-Titl": "Актив із високою ринковою капіталізацією та низькою волатильністю",
+    "MktCap-Mid-Titl": "Актив із середньою ринковою капіталізацією та середньою волатильністю",
+    "MktCap-Small-Titl": "Актив із низькою ринковою капіталізацією та високою волатильністю",
+    "MktCap-Micro-Titl": "Актив з мікро-капіталізацією та надзвичайною волатильністю",
+    "Concentrated-Titl": "Зосереджена пропозиція активів",
+    "Platfrm-Establshd-Titl": "Платформа з надійним досвідом",
+    "Platfrm-New-Titl": "Платформа з обмеженим або відсутнім досвідом",
+    "Platfrm-AuditNo-Titl": "Немає проведеного аудиту",
+    "Platfrm-Audit-Titl": "Платформа, перевірена авторитетним аудитором",
+    "Platfrm-Verified-Titl": "Контракти проєкту перевірено",
+    "Platfrm-VerifiedNo-Titl": "Контракти проєкту непублічні (неперевірені)",
+    "Platfrm-Timelock-Titl": "Небезпечні функції, заблоковані на час",
+    "Platfrm-TimelockShort-Titl": "Небезпечні функції, заблоковані з короткою затримкою",
+    "Platfrm-TimelockNo-Titl": "Небезпечна функція, не заблокована в часі"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT заблоковано до {{date}}"
+    }
   }
 }
