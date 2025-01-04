@@ -45,7 +45,7 @@
     "bignumber.js": "^9.1.2",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "got": "^11.8.6",
+    "got": "^14.4.5",
     "i18next": "^24.2.0",
     "i18next-fs-backend": "^2.6.0",
     "i18next-http-middleware": "^3.7.1",
