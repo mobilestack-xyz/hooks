@@ -909,10 +909,10 @@
     retry-request "^6.0.0"
     teeny-request "^9.0.0"
 
-"@google-cloud/functions-framework@^3.1.3", "@google-cloud/functions-framework@^3.4.4":
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/@google-cloud/functions-framework/-/functions-framework-3.4.4.tgz#cab0717885d1703fb46cbdeff1df7760e2d0be77"
-  integrity sha512-OVDuc9t1NrWvUbg25FClzuPDb5LCIVW65nBhG4YJHuBaSjclbMcr/OAqQsgxzmJxuR/sS+lo8HZyAcPAzJKX2A==
+"@google-cloud/functions-framework@^3.1.3", "@google-cloud/functions-framework@^3.4.5":
+  version "3.4.5"
+  resolved "https://registry.yarnpkg.com/@google-cloud/functions-framework/-/functions-framework-3.4.5.tgz#43636959c59b2395b061bb25c5bf0879fd2de900"
+  integrity sha512-mf3Yw3kRPsz0K7TytvSoqO3peuVZWPi9B3S8zacIk49zi2WqL+rjHaw4zPZ8T3O89jDsCZVj5PFpDJC6Ge4mpA==
   dependencies:
     "@types/express" "^5.0.0"
     body-parser "^1.18.3"
