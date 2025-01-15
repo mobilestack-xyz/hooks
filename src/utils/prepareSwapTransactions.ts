@@ -47,6 +47,9 @@ export async function prepareSwapTransactions({
   enableAppFee?: boolean
 }): Promise<TriggerOutputShape<'swap-deposit'>> {
   const amountToSwap = parseUnits(swapFromToken.amount, swapFromToken.decimals)
+  // use the token's networkId if present, but fallback to the networkId
+  // as older clients supporting only same chain swap and deposit won't set it.
+  const fromNetworkId = swapFromToken.networkId ?? networkId
 
   const swapParams = {
     buyToken: swapToTokenAddress,
@@ -54,9 +57,7 @@ export async function prepareSwapTransactions({
     buyNetworkId: networkId,
     ...(swapFromToken.address && { sellToken: swapFromToken.address }),
     sellIsNative: swapFromToken.isNative,
-    // use the token's networkId if present, but fallback to the networkId
-    // as older clients supporting only same chain swap and deposit won't set it.
-    sellNetworkId: swapFromToken.networkId ?? networkId,
+    sellNetworkId: fromNetworkId,
     sellAmount: amountToSwap.toString(),
     slippagePercentage: '1',
     postHook,
@@ -99,7 +100,7 @@ export async function prepareSwapTransactions({
     throw new Error('Unable to get swap quote')
   }
 
-  const client = getClient(networkId)
+  const client = getClient(fromNetworkId)
 
   const transactions: Transaction[] = []
 
@@ -120,7 +121,7 @@ export async function prepareSwapTransactions({
       })
 
       const approveTx: Transaction = {
-        networkId,
+        networkId: fromNetworkId,
         from: walletAddress,
         to: swapFromToken.address,
         data,
@@ -133,7 +134,7 @@ export async function prepareSwapTransactions({
     swapQuote.unvalidatedSwapTransaction
 
   const swapTx: Transaction = {
-    networkId,
+    networkId: fromNetworkId,
     from,
     to,
     data,
