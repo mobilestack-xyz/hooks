@@ -37,6 +37,15 @@ const mockErc20SwapFromToken = {
   address: '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0' as Address,
 }
 
+const mockErc20CrossChainSwapFromToken = {
+  tokenId: 'op-mainnet:0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
+  isNative: false,
+  amount: '1',
+  decimals: 6,
+  address: '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0' as Address,
+  networkId: NetworkId['op-mainnet'],
+}
+
 const mockPostHook = {
   chainType: ChainType.EVM as const,
   calls: [
@@ -90,7 +99,7 @@ describe('prepareSwapTransactions', () => {
 
     expect(transactions).toHaveLength(1)
     expect(transactions[0]).toEqual({
-      networkId: NetworkId['arbitrum-one'],
+      networkId: NetworkId['op-mainnet'],
       from: mockWalletAddress,
       to: '0x12345678',
       data: '0xswapdata',
@@ -155,6 +164,52 @@ describe('prepareSwapTransactions', () => {
           sellToken: '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
           sellIsNative: false,
           sellNetworkId: NetworkId['arbitrum-one'],
+          sellAmount: (1e6).toString(),
+          slippagePercentage: '1',
+          postHook: mockPostHook,
+          userAddress: mockWalletAddress,
+        },
+      },
+    )
+  })
+
+  it('prepares swap transaction from erc20 token with network id set', async () => {
+    const { transactions, dataProps } = await prepareSwapTransactions({
+      networkId: NetworkId['arbitrum-one'],
+      walletAddress: '0x2b8441ef13333ffa955c9ea5ab5b3692da95260d',
+      swapFromToken: mockErc20CrossChainSwapFromToken,
+      swapToTokenAddress: '0x724dc807b04555b71ed48a6896b6f41593b8c637',
+      postHook: mockPostHook,
+    })
+
+    expect(transactions).toHaveLength(2)
+    expect(transactions[0]).toEqual({
+      networkId: NetworkId['op-mainnet'],
+      from: mockWalletAddress,
+      to: '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
+      data: expect.any(String),
+    })
+    expect(transactions[1]).toEqual({
+      networkId: NetworkId['op-mainnet'],
+      from: mockWalletAddress,
+      to: '0x12345678',
+      data: '0xswapdata',
+      value: 111n,
+      gas: 14042n,
+      estimatedGasUse: 12211n,
+    })
+    expect(dataProps).toEqual({ swapTransaction })
+    expect(got.post).toHaveBeenCalledTimes(1)
+    expect(got.post).toHaveBeenCalledWith(
+      'https://api.mainnet.valora.xyz/getSwapQuote',
+      {
+        json: {
+          buyToken: '0x724dc807b04555b71ed48a6896b6f41593b8c637',
+          buyIsNative: false,
+          buyNetworkId: NetworkId['arbitrum-one'],
+          sellToken: '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
+          sellIsNative: false,
+          sellNetworkId: NetworkId['op-mainnet'],
           sellAmount: (1e6).toString(),
           slippagePercentage: '1',
           postHook: mockPostHook,
