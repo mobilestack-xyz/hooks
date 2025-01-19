@@ -55,7 +55,7 @@ const hook: ShortcutsHook = {
           // amount in smallest unit
           const amountToSupply = parseUnits(tokens[0].amount, tokenDecimals)
 
-          const client = getClient(networkId)
+          const client = getClient(networkId, 'beefy')
 
           const approvedAllowanceForSpender = await client.readContract({
             address: tokenAddress,

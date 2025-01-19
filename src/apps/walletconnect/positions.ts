@@ -34,7 +34,7 @@ async function getStakedWctPositionDefinition(
     return undefined
   }
 
-  const client = getClient(networkId)
+  const client = getClient(networkId, 'walletconnect')
   const locks = await client.readContract({
     address: wctStakingConfig.stakingAddress,
     abi: stakingAbi,

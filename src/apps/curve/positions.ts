@@ -94,7 +94,7 @@ export async function getPoolPositionDefinitions(
   let consideredPools = pools
   if (address) {
     // call balanceOf to check if user has balance on a pool
-    const client = getClient(networkId)
+    const client = getClient(networkId, 'curve')
     const result = await client.multicall({
       contracts: pools.map(
         (pool) =>

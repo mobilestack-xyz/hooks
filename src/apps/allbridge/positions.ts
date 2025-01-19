@@ -39,7 +39,7 @@ const hook: PositionsHook = {
       return []
     }
 
-    const client = getClient(networkId)
+    const client = getClient(networkId, 'allbridge')
 
     const [balances, rewards, totalSupplies, lpTokenDecimals] =
       await Promise.all([

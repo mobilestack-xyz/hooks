@@ -25,7 +25,7 @@ async function getVeMentoPositionDefinition(
     return undefined
   }
 
-  const client = getClient(networkId)
+  const client = getClient(networkId, 'mento')
   const [mentoTokenAddress, decimals, locked, balance] = await client.multicall(
     {
       contracts: [
