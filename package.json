@@ -51,7 +51,7 @@
     "i18next-http-middleware": "^3.7.1",
     "lru-cache": "^11.0.2",
     "semver": "^7.6.3",
-    "viem": "^2.22.10",
+    "viem": "^2.22.12",
     "zod": "^3.24.1"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "@types/shelljs": "^0.8.15",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@valora/eslint-config-typescript": "^1.1.5",
+    "@valora/eslint-config-typescript": "^1.1.6",
     "@valora/prettier-config": "^0.0.1",
     "chalk": "^4.1.2",
     "conventional-changelog-conventionalcommits": "^6.1.0",
