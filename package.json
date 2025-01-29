@@ -46,12 +46,12 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "got": "^11.8.6",
-    "i18next": "^24.2.1",
+    "i18next": "^24.2.2",
     "i18next-fs-backend": "^2.6.0",
     "i18next-http-middleware": "^3.7.1",
     "lru-cache": "^11.0.2",
     "semver": "^7.6.3",
-    "viem": "^2.22.12",
+    "viem": "^2.22.14",
     "zod": "^3.24.1"
   },
   "devDependencies": {
