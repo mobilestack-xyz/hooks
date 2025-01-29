@@ -134,7 +134,9 @@ void (async () => {
   }
 
   const account = mnemonicToAccount(argv.mnemonic, {
-    ...(argv.networkId === NetworkId['celo-mainnet'] && {path: argv.derivationPath as any})
+    ...(argv.networkId === NetworkId['celo-mainnet'] && {
+      path: argv.derivationPath as any,
+    }),
   })
 
   if (account.address.toLowerCase() !== argv.address.toLowerCase()) {
@@ -160,7 +162,7 @@ void (async () => {
 
   for (const transaction of result.transactions) {
     const txHash = await wallet.sendTransaction({
-     from: transaction.from as Address,
+      from: transaction.from as Address,
       to: transaction.to as Address,
       data: transaction.data as `0x${string}`,
     })
