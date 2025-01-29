@@ -134,7 +134,7 @@ void (async () => {
   }
 
   const account = mnemonicToAccount(argv.mnemonic, {
-    path: argv.derivationPath as any,
+    ...(argv.networkId === NetworkId['celo-mainnet'] && {path: argv.derivationPath as any})
   })
 
   if (account.address.toLowerCase() !== argv.address.toLowerCase()) {
@@ -143,19 +143,24 @@ void (async () => {
     )
   }
 
+  const fromNetworkId: NetworkId = triggerInput?.swapFromToken?.networkId
+
+  const networkId = fromNetworkId ?? argv.networkId
+
+  console.log(`Sending transactions on network: ${networkId}`)
   const wallet = createWalletClient({
     account,
-    chain: NETWORK_ID_TO_CHAIN[argv.networkId],
+    chain: NETWORK_ID_TO_CHAIN[networkId],
     transport: http(),
   })
   const client = createPublicClient({
-    chain: NETWORK_ID_TO_CHAIN[argv.networkId],
+    chain: NETWORK_ID_TO_CHAIN[networkId],
     transport: http(),
   })
 
   for (const transaction of result.transactions) {
     const txHash = await wallet.sendTransaction({
-      // from: transaction.from as Address,
+     from: transaction.from as Address,
       to: transaction.to as Address,
       data: transaction.data as `0x${string}`,
     })
