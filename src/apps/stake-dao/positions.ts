@@ -51,7 +51,7 @@ async function getVaultPositionDefinitions(
   networkId: NetworkId,
   address: Address | undefined,
 ): Promise<PositionDefinition[]> {
-  const client = getClient(networkId)
+  const client = getClient(networkId, 'stake-dao')
 
   const vaultAddresses = SD_VAULT_ADDRESSES_BY_NETWORK_ID[networkId]
   const vaultsData = await client.multicall({

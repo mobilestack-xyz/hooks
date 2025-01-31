@@ -1,4 +1,4 @@
-import { Address } from 'viem'
+import { Address, PublicClient } from 'viem'
 import { getClient } from '../../runtime/client'
 import { getTokenId } from '../../runtime/getTokenId'
 import { NetworkId } from '../../types/networkId'
@@ -75,8 +75,11 @@ export async function getUniswapV3PositionDefinitions(
   nftPositions: Address,
   factory: Address,
   imageUrl: string = 'https://raw.githubusercontent.com/valora-inc/dapp-list/ab12ab234b4a6e01eff599c6bd0b7d5b44d6f39d/assets/uniswap.png',
+  client?: PublicClient,
 ): Promise<ContractPositionDefinition[]> {
-  const client = getClient(networkId)
+  if (!client) {
+    client = getClient(networkId, 'uniswap')
+  }
   const userPools = await client.readContract({
     abi: userPositionsAbi,
     address: userPositionsMulticall,

@@ -25,7 +25,7 @@ const hook: PositionsHook = {
     }
     const planNfts = await getHedgeyPlanNfts({ address })
     const now = BigInt(Math.floor(new Date().getTime() / 1000))
-    const client = getClient(networkId)
+    const client = getClient(networkId, 'hedgey')
     const positions: ContractPositionDefinition[] = await Promise.all(
       planNfts.map(async (planNft) => {
         const tokenVestingPlanContract = {
