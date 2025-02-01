@@ -37,7 +37,7 @@
     "deploy:production:http": "yarn deploy:production --trigger-http --allow-unauthenticated"
   },
   "dependencies": {
-    "@0xsquid/squid-types": "^0.1.132",
+    "@0xsquid/squid-types": "^0.1.133",
     "@bgd-labs/aave-address-book": "^4.8.1",
     "@google-cloud/functions-framework": "^3.4.5",
     "@valora/http-handler": "^0.0.1",
