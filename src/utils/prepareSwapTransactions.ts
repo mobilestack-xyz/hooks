@@ -130,7 +130,7 @@ export async function prepareSwapTransactions({
     }
   }
 
-  const { from, to, data, value, gas, estimatedGasUse } =
+  const { from, to, data, value, gas, estimatedGasUse, simulationStatus } =
     swapQuote.unvalidatedSwapTransaction
 
   const swapTx: Transaction = {
@@ -139,7 +139,11 @@ export async function prepareSwapTransactions({
     to,
     data,
     value: BigInt(value),
-    gas: BigInt(gas),
+    // if gas was simulated, add a 15% buffer
+    gas:
+      simulationStatus === 'success'
+        ? (BigInt(gas) * 115n) / 100n
+        : BigInt(gas),
     estimatedGasUse: estimatedGasUse ? BigInt(estimatedGasUse) : undefined,
   }
 
