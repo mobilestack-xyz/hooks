@@ -104,7 +104,7 @@ describe('prepareSwapTransactions', () => {
       to: '0x12345678',
       data: '0xswapdata',
       value: 111n,
-      gas: 14042n,
+      gas: 12345n,
       estimatedGasUse: 12211n,
     })
     expect(dataProps).toEqual({ swapTransaction })
@@ -149,7 +149,7 @@ describe('prepareSwapTransactions', () => {
       to: '0x12345678',
       data: '0xswapdata',
       value: 111n,
-      gas: 14042n,
+      gas: 12345n,
       estimatedGasUse: 12211n,
     })
     expect(dataProps).toEqual({ swapTransaction })
@@ -195,7 +195,7 @@ describe('prepareSwapTransactions', () => {
       to: '0x12345678',
       data: '0xswapdata',
       value: 111n,
-      gas: 14042n,
+      gas: 12345n,
       estimatedGasUse: 12211n,
     })
     expect(dataProps).toEqual({ swapTransaction })
@@ -237,7 +237,7 @@ describe('prepareSwapTransactions', () => {
       to: '0x12345678',
       data: '0xswapdata',
       value: 111n,
-      gas: 14042n,
+      gas: 12345n,
       estimatedGasUse: 12211n,
     })
   })

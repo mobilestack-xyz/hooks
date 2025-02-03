@@ -133,18 +133,18 @@ export async function prepareSwapTransactions({
   const { from, to, data, value, gas, estimatedGasUse } =
     swapQuote.unvalidatedSwapTransaction
 
+  logger.info(
+    { gas, estimatedGasUse, fromNetworkId, networkId },
+    'Gas and estimated gas use',
+  )
+
   const swapTx: Transaction = {
     networkId: fromNetworkId,
     from,
     to,
     data,
     value: BigInt(value),
-    // estimatedGasUse is from the simulation, gas is from the swap provider
-    // add 15% padding to the simulation if it's available, otherwise fallback
-    // to the swap provider's gas
-    gas: estimatedGasUse
-      ? (BigInt(estimatedGasUse) * 115n) / 100n
-      : BigInt(gas),
+    gas: BigInt(gas),
     estimatedGasUse: estimatedGasUse ? BigInt(estimatedGasUse) : undefined,
   }
 
