@@ -77,6 +77,7 @@ const swapTransaction = {
   from: mockWalletAddress,
   value: '111',
   data: '0xswapdata',
+  simulationStatus: 'success',
 }
 
 describe('prepareSwapTransactions', () => {
@@ -104,7 +105,7 @@ describe('prepareSwapTransactions', () => {
       to: '0x12345678',
       data: '0xswapdata',
       value: 111n,
-      gas: 12345n,
+      gas: 14196n,
       estimatedGasUse: 12211n,
     })
     expect(dataProps).toEqual({ swapTransaction })
@@ -127,7 +128,13 @@ describe('prepareSwapTransactions', () => {
     )
   })
 
-  it('prepares swap transaction from erc20 token with network id not set', async () => {
+  it('prepares swap transaction from erc20 token with network id not set and swap has non simulated gas', async () => {
+    mockGotPostJson.mockResolvedValueOnce({
+      unvalidatedSwapTransaction: {
+        ...swapTransaction,
+        simulationStatus: 'failure',
+      },
+    })
     const { transactions, dataProps } = await prepareSwapTransactions({
       networkId: NetworkId['arbitrum-one'],
       walletAddress: '0x2b8441ef13333ffa955c9ea5ab5b3692da95260d',
@@ -152,7 +159,9 @@ describe('prepareSwapTransactions', () => {
       gas: 12345n,
       estimatedGasUse: 12211n,
     })
-    expect(dataProps).toEqual({ swapTransaction })
+    expect(dataProps).toEqual({
+      swapTransaction: { ...swapTransaction, simulationStatus: 'failure' },
+    })
     expect(got.post).toHaveBeenCalledTimes(1)
     expect(got.post).toHaveBeenCalledWith(
       'https://api.mainnet.valora.xyz/getSwapQuote',
@@ -195,7 +204,7 @@ describe('prepareSwapTransactions', () => {
       to: '0x12345678',
       data: '0xswapdata',
       value: 111n,
-      gas: 12345n,
+      gas: 14196n,
       estimatedGasUse: 12211n,
     })
     expect(dataProps).toEqual({ swapTransaction })
@@ -237,7 +246,7 @@ describe('prepareSwapTransactions', () => {
       to: '0x12345678',
       data: '0xswapdata',
       value: 111n,
-      gas: 12345n,
+      gas: 14196n,
       estimatedGasUse: 12211n,
     })
   })
