@@ -133,11 +133,6 @@ export async function prepareSwapTransactions({
   const { from, to, data, value, gas, estimatedGasUse } =
     swapQuote.unvalidatedSwapTransaction
 
-  logger.info(
-    { gas, estimatedGasUse, fromNetworkId, networkId },
-    'Gas and estimated gas use',
-  )
-
   const swapTx: Transaction = {
     networkId: fromNetworkId,
     from,
