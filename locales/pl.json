@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Nagrody",
     "earnings": "Zarobki"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Aktywa",
+    "Categry-Platform": "Platforma",
+    "Complexity-Low-Titl": "Strategia o niskiej złożoności",
+    "Complexity-Mid-Titl": "Strategia o średniej złożoności",
+    "Complexity-Hi-Titl": "Strategia o wysokiej złożoności",
+    "Testd-Battle-Titl": "Strategia została sprawdzona w boju",
+    "Testd-New-Titl": "Jest to nowa strategia",
+    "Testd-Experimtl-Titl": "Jest to eksperymentalna strategia",
+    "IL-None-Titl": "Bardzo niska lub zerowa oczekiwana nietrwała strata (IL)",
+    "IL-Low-Titl": "Niska oczekiwana nietrwała strata (IL)",
+    "IL-High-Titl": "Wysoka oczekiwana nietrwała strata (IL)",
+    "IL-AlgoStable-Titl": "Algorytmicznie stabilne, spolaryzowane ryzyko nietrwałej straty (IL)",
+    "OverCollatAlgoStable-Titl": "Nadmiernie zabezpieczony algorytmiczny stablecoin",
+    "PartialCollatAlgoStable-Titl": "Częściowo zabezpieczony algorytmiczny stablecoin",
+    "Liquidt-High-Titl": "Wysoka płynność aktywów",
+    "Liquidt-Low-Titl": "Niska płynność aktywów",
+    "MktCap-Large-Titl": "Aktywa o wysokiej kapitalizacji rynkowej i niższej zmienności",
+    "MktCap-Mid-Titl": "Aktywa o średniej kapitalizacji rynkowej i przeciętnej zmienności",
+    "MktCap-Small-Titl": "Aktywa o niskiej kapitalizacji rynkowej i wysokiej zmienności",
+    "MktCap-Micro-Titl": "Aktywa o mikrokapitalizacji rynkowej i ekstremalnej zmienności",
+    "Concentrated-Titl": "Skoncentrowana podaż aktywów",
+    "Platfrm-Establshd-Titl": "Platforma o znanej historii",
+    "Platfrm-New-Titl": "Platforma z niewielką lub żadną historią",
+    "Platfrm-AuditNo-Titl": "Brak ustalonego audytu",
+    "Platfrm-Audit-Titl": "Platforma zbadana przez zaufanego audytora",
+    "Platfrm-Verified-Titl": "Umowy dotyczące projektów zostały zweryfikowane",
+    "Platfrm-VerifiedNo-Titl": "Umowy dotyczące projektów są niejawne (niezweryfikowane)",
+    "Platfrm-Timelock-Titl": "Niebezpieczne funkcje zablokowane czasowo",
+    "Platfrm-TimelockShort-Titl": "Niebezpieczne funkcje zablokowane czasowo z krótkim opóźnieniem",
+    "Platfrm-TimelockNo-Titl": "Niebezpieczne funkcje nie są blokowane czasowo"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Tyczenie",
+      "description": "{{amount}} WCT zablokowane do {{date}}"
+    }
   }
 }
