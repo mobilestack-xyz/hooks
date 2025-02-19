@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Mobile Stack Hooks Platform
+# Divvi Hooks Platform
 
 ## Developing a hook
 
@@ -10,8 +10,8 @@ Developers must implement hooks in TypeScript and integrate them with
 one of the existing per-hook type GitHub repositories.
 
 We hope to make hooks easy to develop but also want to easily iterate
-on the Mobile Stack Hooks Platform for developing and deploying hooks. For
-now we require all deployed hook code to be located in Mobile Stack GitHub
+on the Divvi Hooks Platform for developing and deploying hooks. For
+now we require all deployed hook code to be located in Divvi GitHub
 repositories so we can help improve and maintain them (e.g., when
 we implement breaking changes to the platform), but in the future we
 expect to impose fewer requirements on how hooks are developed.
@@ -36,7 +36,7 @@ high-level model in mind when developing their hooks and avoid
 depending on Google Cloud Function specific attributes (_e.g._, reading
 the reserved environment variable `K_SERVICE`)
 
-## Deploying a hook to a Mobile Stack app
+## Deploying a hook to a Divvi app
 
 To deploy your hook you must:
 

@@ -149,7 +149,7 @@ const hook: PositionsHook = {
                 title: `${tokenDescription.symbol} ${type}`,
                 description: `${baseTokenDescription.symbol} Market`,
                 imageUrl:
-                  'https://raw.githubusercontent.com/mobilestack-xyz/hooks/main/src/apps/compound/assets/compound.png',
+                  'https://raw.githubusercontent.com/divvi-xyz/hooks/main/src/apps/compound/assets/compound.png',
                 manageUrl: COMPOUND_NETWORK_NAME[networkId]
                   ? `https://app.compound.finance/markets/${baseTokenDescription.symbol}-${COMPOUND_NETWORK_NAME[networkId]}`
                   : undefined,

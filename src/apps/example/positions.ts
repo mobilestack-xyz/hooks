@@ -61,7 +61,7 @@ const hook: PositionsHook = {
 
     return [
       {
-        // Position Hooks type, see https://docs.mobilestack.xyz/hooks/
+        // Position Hooks type, see https://docs.divvi.xyz/hooks/
         type: 'contract-position-definition',
         networkId,
         // This serves an ID and by convention it should be the contract holding
