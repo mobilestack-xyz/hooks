@@ -111,7 +111,7 @@ const hook: PositionsHook = {
                   : ''
               }`,
               imageUrl:
-                'https://raw.githubusercontent.com/mobilestack-xyz/hooks/main/src/apps/somm/assets/somm.png',
+                'https://raw.githubusercontent.com/divvi-xyz/hooks/main/src/apps/somm/assets/somm.png',
               manageUrl,
             }
           },

@@ -1,15 +1,15 @@
 # Live Preview
 
-Hooks in development can be easily tested in a Mobile Stack app using the live preview feature.
+Hooks in development can be easily tested in a Divvi app using the live preview feature.
 
 <video controls muted playsInline width="100%">
-  <source src="https://raw.githubusercontent.com/mobilestack-xyz/hooks/main/docs/assets/live-preview.mp4"/>
+  <source src="https://raw.githubusercontent.com/divvi-xyz/hooks/main/docs/assets/live-preview.mp4"/>
 </video>
 
 ## Steps
 
 1. Run `yarn start` to start the development server.
-2. Open the app (_e.g._, the Valora wallet or another Mobile Stack app) on your phone and go to the QR scanner screen.
+2. Open the app (_e.g._, the Valora wallet or another Divvi app) on your phone and go to the QR scanner screen.
 3. Scan the QR code displayed in the terminal.
 
 ## Additional Information
