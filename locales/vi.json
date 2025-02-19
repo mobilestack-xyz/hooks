@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Tiền thưởng",
     "earnings": "Thu nhập"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Tài sản",
+    "Categry-Platform": "Nền tảng",
+    "Complexity-Low-Titl": "Chiến lược đơn giản",
+    "Complexity-Mid-Titl": "Chiến lược khá phức tạp",
+    "Complexity-Hi-Titl": "Chiến lược rất phức tạp",
+    "Testd-Battle-Titl": "Chiến lược đã được thử nghiệm qua thực chiến",
+    "Testd-New-Titl": "Chiến lược mới",
+    "Testd-Experimtl-Titl": "Chiến lược đang thử nghiệm",
+    "IL-None-Titl": "Tổn thất tạm thời (IL) được kỳ vọng rất thấp hoặc bằng 0",
+    "IL-Low-Titl": "Tổn thất tạm thời (IL) được kỳ vọng thấp",
+    "IL-High-Titl": "Tổn thất tạm thời (IL) được kỳ vọng cao",
+    "IL-AlgoStable-Titl": "Rủi ro IL phân cực và ổn định do thuật toán",
+    "OverCollatAlgoStable-Titl": "Stablecoin ổn định nhờ thuật toán được thế chấp quá mức",
+    "PartialCollatAlgoStable-Titl": "Stablecoin ổn định nhờ thuật toán được thế chấp một phần",
+    "Liquidt-High-Titl": "Khả năng thanh khoản tài sản cao",
+    "Liquidt-Low-Titl": "Khả năng thanh khoản tài sản thấp",
+    "MktCap-Large-Titl": "Tài sản có giá trị vốn hóa thị trường cao, ít biến động",
+    "MktCap-Mid-Titl": "Tài sản có giá trị vốn hóa thị trường trung bình, khá biến động",
+    "MktCap-Small-Titl": "Tài sản có giá trị vốn hóa thị trường nhỏ, rất biến động",
+    "MktCap-Micro-Titl": "Tài sản có giá trị vốn hóa thị trường cực nhỏ, cực kỳ biến động",
+    "Concentrated-Titl": "Nguồn cung tài sản tập trung",
+    "Platfrm-Establshd-Titl": "Nền tảng có thành tích hoạt động đã được chứng minh",
+    "Platfrm-New-Titl": "Nền tảng có ít hoặc không có thành tích hoạt động nào",
+    "Platfrm-AuditNo-Titl": "Chưa thiết lập quy trình kiểm toán",
+    "Platfrm-Audit-Titl": "Nền tảng được kiểm toán bởi các nhà đánh giá uy tín",
+    "Platfrm-Verified-Titl": "Hợp đồng dự án đã được xác minh",
+    "Platfrm-VerifiedNo-Titl": "Hợp đồng dự án không công khai (chưa được xác minh)",
+    "Platfrm-Timelock-Titl": "Chức năng nguy hiểm bị khóa thời gian",
+    "Platfrm-TimelockShort-Titl": "Chức năng nguy hiểm bị khóa thời gian tạm thời",
+    "Platfrm-TimelockNo-Titl": "Chức năng nguy hiểm không bị khóa thời gian"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT locked until {{date}}"
+    }
   }
 }

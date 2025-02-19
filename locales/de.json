@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Rewards",
     "earnings": "Verdienst"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Vermögen",
+    "Categry-Platform": "Plattform",
+    "Complexity-Low-Titl": "Strategie mit geringer Komplexität",
+    "Complexity-Mid-Titl": "Strategie mit mittlerer Komplexität",
+    "Complexity-Hi-Titl": "Strategie mit hoher Komplexität",
+    "Testd-Battle-Titl": "Strategie ist kampferprobt",
+    "Testd-New-Titl": "Strategie ist neu",
+    "Testd-Experimtl-Titl": "Strategie ist experimentell",
+    "IL-None-Titl": "Sehr niedrige oder keine IL erwartet",
+    "IL-Low-Titl": "Niedrige IL erwartet",
+    "IL-High-Titl": "Hohe IL erwartet",
+    "IL-AlgoStable-Titl": "Algorithmisches stabiles, polarisiertes IL-Risiko",
+    "OverCollatAlgoStable-Titl": "Überbesicherter algorithmischer Stablecoin",
+    "PartialCollatAlgoStable-Titl": "Teilweise besicherter algorithmischer Stablecoin",
+    "Liquidt-High-Titl": "Hohe Liquidität der Vermögenswerte",
+    "Liquidt-Low-Titl": "Geringe Liquidität der Vermögenswerte",
+    "MktCap-Large-Titl": "Vermögen mit hoher Marktkapitalisierung und geringer Volatilität",
+    "MktCap-Mid-Titl": "Vermögen mit mittlerer Marktkapitalisierung und durchschnittlicher Volatilität",
+    "MktCap-Small-Titl": "Vermögen mit geringer Marktkapitalisierung und hoher Volatilität",
+    "MktCap-Micro-Titl": "Vermögen mit Mikro-Marktkapitalisierung und extremer Volatilität",
+    "Concentrated-Titl": "Vermögensangebot konzentriert",
+    "Platfrm-Establshd-Titl": "Plattform mit bekannter Erfolgsbilanz",
+    "Platfrm-New-Titl": "Plattform mit niedriger oder keiner Erfolgsbilanz",
+    "Platfrm-AuditNo-Titl": "Keine festgelegte Prüfung",
+    "Platfrm-Audit-Titl": "Plattform von vertrauenswürdigem Prüfer geprüft",
+    "Platfrm-Verified-Titl": "Projektverträge werden überprüft",
+    "Platfrm-VerifiedNo-Titl": "Projektverträge nicht öffentlich (nicht überprüft)",
+    "Platfrm-Timelock-Titl": "Gefährliche Funktionen zeitgesperrt",
+    "Platfrm-TimelockShort-Titl": "Gefährliche Funktionen mit kurzer Zeitverzögerung zeitgesperrt",
+    "Platfrm-TimelockNo-Titl": "Gefährliche Funktion nicht zeitgesperrt"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT gesperrt bis {{date}}"
+    }
   }
 }

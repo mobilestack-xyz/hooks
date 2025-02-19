@@ -7,5 +7,44 @@
   "earningItems": {
     "rewards": "Rewards",
     "earnings": "Earnings"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Asset",
+    "Categry-Platform": "Platform",
+    "Complexity-Low-Titl": "Low-complexity strategy",
+    "Complexity-Mid-Titl": "Medium-complexity strategy",
+    "Complexity-Hi-Titl": "High-complexity strategy",
+    "Testd-Battle-Titl": "Strategy is battle tested",
+    "Testd-New-Titl": "Strategy is new",
+    "Testd-Experimtl-Titl": "Strategy is experimental",
+    "IL-None-Titl": "Very low or zero expected IL",
+    "IL-Low-Titl": "Low expected IL",
+    "IL-High-Titl": "High expected IL",
+    "IL-AlgoStable-Titl": "Algorithmic stable, polarized IL risk",
+    "OverCollatAlgoStable-Titl": "Overcollateralized algorithmic stablecoin",
+    "PartialCollatAlgoStable-Titl": "Partially-collateralized algorithmic stablecoin",
+    "Liquidt-High-Titl": "High asset liquidity",
+    "Liquidt-Low-Titl": "Low asset liquidity",
+    "MktCap-Large-Titl": "High market-capitalization, lower volatility asset",
+    "MktCap-Mid-Titl": "Medium market-capitalization, average volatility asset",
+    "MktCap-Small-Titl": "Small market-capitalization, high volatility asset",
+    "MktCap-Micro-Titl": "Micro market-capitalization, extreme volatility asset",
+    "Concentrated-Titl": "Asset supply concentrated",
+    "Platfrm-Establshd-Titl": "Platform with known track record",
+    "Platfrm-New-Titl": "Platform with little or no track record",
+    "Platfrm-AuditNo-Titl": "No established audit",
+    "Platfrm-Audit-Titl": "Platform audited by trusted reviewer",
+    "Platfrm-Verified-Titl": "Project contracts are verified",
+    "Platfrm-VerifiedNo-Titl": "Project contracts non-public (unverified)",
+    "Platfrm-Timelock-Titl": "Dangerous functions timelocked",
+    "Platfrm-TimelockShort-Titl": "Dangerous functions timelocked with short delay",
+    "Platfrm-TimelockNo-Titl": "Dangerous function not timelocked"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT locked until {{date}}"
+    }
   }
 }

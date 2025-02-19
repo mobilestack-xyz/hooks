@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Ödüller",
     "earnings": "Kazançlar"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Güçlü",
+    "Categry-Asset": "Varlık",
+    "Categry-Platform": "Platform",
+    "Complexity-Low-Titl": "Düşük karmaşıklık stratejisi",
+    "Complexity-Mid-Titl": "Orta düzey karmaşıklık stratejisi",
+    "Complexity-Hi-Titl": "Yüksek karmaşıklık stratejisi",
+    "Testd-Battle-Titl": "Strateji, sahada test edilmiştir",
+    "Testd-New-Titl": "Strateji yenidir",
+    "Testd-Experimtl-Titl": "Strateji deneyseldir",
+    "IL-None-Titl": "Çok düşük veya sıfır beklentili IL",
+    "IL-Low-Titl": "Düşük beklentili IL",
+    "IL-High-Titl": "Yüksek beklentili IL",
+    "IL-AlgoStable-Titl": "Algoritmik stabil, polarize IL riski",
+    "OverCollatAlgoStable-Titl": "Aşırı teminatlandırılmış algoritmik sabit coin",
+    "PartialCollatAlgoStable-Titl": "Kısmen teminatlandırılmış algoritmik sabit coin",
+    "Liquidt-High-Titl": "Yüksek varlık likiditesi",
+    "Liquidt-Low-Titl": "Düşük varlık likiditesi",
+    "MktCap-Large-Titl": "Yüksek piyasa değerine sahip, düşük düzeyde oynaklığı olan varlık",
+    "MktCap-Mid-Titl": "Orta düzey piyasa değerine sahip, ortalama oynaklığı olan varlık",
+    "MktCap-Small-Titl": "Küçük piyasa değerine sahip, yüksek düzey oynaklığı olan varlık",
+    "MktCap-Micro-Titl": "Mikro piyasa değerine sahip, aşırı oynaklığı olan varlık",
+    "Concentrated-Titl": "Varlık tedariki yoğun",
+    "Platfrm-Establshd-Titl": "Bilinen geçmiş performansı olan platform",
+    "Platfrm-New-Titl": "Geçmiş performansı çok az olan veya hiç olmayan platform",
+    "Platfrm-AuditNo-Titl": "Yerleşik denetim yok",
+    "Platfrm-Audit-Titl": "Güvenilir inceleyen tarafından denetlenen platform",
+    "Platfrm-Verified-Titl": "Proje sözleşmeleri doğrulanmıştır",
+    "Platfrm-VerifiedNo-Titl": "Proje sözleşmeleri kamuya açık değildir (doğrulanmamış)",
+    "Platfrm-Timelock-Titl": "Tehlikeli işlevler zaman kilitli",
+    "Platfrm-TimelockShort-Titl": "Tehlikeli işlevler, kısa gecikmeyle zaman kilitli",
+    "Platfrm-TimelockNo-Titl": "Tehlikeli işlev, zaman kilitli değil"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT {{date}}adresine kadar kilitlendi"
+    }
   }
 }

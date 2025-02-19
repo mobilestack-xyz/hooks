@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Вознаграждения",
     "earnings": "Доход"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Актив",
+    "Categry-Platform": "Платформа",
+    "Complexity-Low-Titl": "Стратегия низкой сложности",
+    "Complexity-Mid-Titl": "Стратегия средней сложности",
+    "Complexity-Hi-Titl": "Стратегия высокой сложности",
+    "Testd-Battle-Titl": "Проверенная стратегия",
+    "Testd-New-Titl": "Новая стратегия",
+    "Testd-Experimtl-Titl": "Экспериментальная стратегия",
+    "IL-None-Titl": "Очень низкие или нулевые ожидаемые непостоянные убытки (IL)",
+    "IL-Low-Titl": "Низкие ожидаемые IL",
+    "IL-High-Titl": "Высокие ожидаемые IL",
+    "IL-AlgoStable-Titl": "Алгоритмический стейблкоин, поляризованный риск IL",
+    "OverCollatAlgoStable-Titl": "Излишне обеспеченный алгоритмический стейблкоин",
+    "PartialCollatAlgoStable-Titl": "Частично обеспеченный алгоритмический стейблкоин",
+    "Liquidt-High-Titl": "Высокая ликвидность актива",
+    "Liquidt-Low-Titl": "Низкая ликвидность актива",
+    "MktCap-Large-Titl": "Актив с высокой рыночной капитализацией и низкой волатильностью",
+    "MktCap-Mid-Titl": "Актив со средней рыночной капитализацией и средней волатильностью",
+    "MktCap-Small-Titl": "Актив с малой рыночной капитализацией и высокой волатильностью",
+    "MktCap-Micro-Titl": "Актив с рыночной микрокапитализацией и чрезвычайно высокой волатильностью",
+    "Concentrated-Titl": "Концентрированное предложение активов",
+    "Platfrm-Establshd-Titl": "Платформа с известной репутацией",
+    "Platfrm-New-Titl": "Платформа с малоизвестной или неизвестной репутацией",
+    "Platfrm-AuditNo-Titl": "Нет установленной проверки",
+    "Platfrm-Audit-Titl": "Платформа проверена надежным экспертом",
+    "Platfrm-Verified-Titl": "Проверены контракты по проекту",
+    "Platfrm-VerifiedNo-Titl": "Контракты по проекту закрыты (не проверены)",
+    "Platfrm-Timelock-Titl": "Опасные функции заблокированы по времени",
+    "Platfrm-TimelockShort-Titl": "Опасные функции заблокированы по времени с небольшой задержкой",
+    "Platfrm-TimelockNo-Titl": "Опасная функция не заблокирована по времени"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT заблокирован до {{date}}"
+    }
   }
 }

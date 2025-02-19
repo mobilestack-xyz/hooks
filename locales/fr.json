@@ -6,5 +6,44 @@
   "earningItems": {
     "rewards": "Récompenses",
     "earnings": "Gains"
+  },
+  "beefyRisks": {
+    "Categry-Beefy": "Beefy",
+    "Categry-Asset": "Actif",
+    "Categry-Platform": "Plateforme",
+    "Complexity-Low-Titl": "Stratégie à faible complexité",
+    "Complexity-Mid-Titl": "Stratégie à moyenne complexité",
+    "Complexity-Hi-Titl": "Stratégie à haute complexité",
+    "Testd-Battle-Titl": "La stratégie est testée",
+    "Testd-New-Titl": "La stratégie est nouvelle",
+    "Testd-Experimtl-Titl": "La stratégie est expérimentale",
+    "IL-None-Titl": "Très faible ou zéro IL attendu",
+    "IL-Low-Titl": "Faible IL attendu",
+    "IL-High-Titl": "Très fort IL attendu",
+    "IL-AlgoStable-Titl": "Risques de IL polarisés stables sur l'algorithme",
+    "OverCollatAlgoStable-Titl": "Algorithme stablecoin surcollateralisé",
+    "PartialCollatAlgoStable-Titl": "Algorithme stablecoin partiellement collateralisé",
+    "Liquidt-High-Titl": "Liquidité d’actif élevée",
+    "Liquidt-Low-Titl": "Liquidité d'actifs faible",
+    "MktCap-Large-Titl": "Capitalisation de marché élevée, volatilité d'actif plus faible",
+    "MktCap-Mid-Titl": "Capitalisation de marché moyenne, volatilité d'actif moyenne",
+    "MktCap-Small-Titl": "Capitalisation de marché faible, volatilité d'actif haute",
+    "MktCap-Micro-Titl": "Capitalisation de marché minime, volatilité d'actif extrême",
+    "Concentrated-Titl": "Concentration de l'offre d'actifs",
+    "Platfrm-Establshd-Titl": "Plateforme avec historique connu",
+    "Platfrm-New-Titl": "Plateforme avec peu ou pas d'historique connu",
+    "Platfrm-AuditNo-Titl": "Aucun audit établi",
+    "Platfrm-Audit-Titl": "Plateforme auditée par un auditeur de confiance",
+    "Platfrm-Verified-Titl": "Les contrats de projet sont vérifiés",
+    "Platfrm-VerifiedNo-Titl": "Contrats de projet non publics (non vérifiés)",
+    "Platfrm-Timelock-Titl": "Fonctions dangereuses bloquées dans le temps",
+    "Platfrm-TimelockShort-Titl": "Les fonctions dangereuses sont bloquées pendant un court délai",
+    "Platfrm-TimelockNo-Titl": "La fonction dangereuse n'est pas verrouillée"
+  },
+  "walletconnect": {
+    "stakedWct": {
+      "title": "Staking",
+      "description": "{{amount}} WCT verrouillé jusqu'à {{date}}"
+    }
   }
 }
