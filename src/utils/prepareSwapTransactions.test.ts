@@ -29,6 +29,15 @@ const mockNativeSwapFromToken = {
   networkId: NetworkId['op-mainnet'],
 }
 
+const mockCeloSwapFromToken = {
+  tokenId: 'celo-mainnet:native',
+  isNative: true,
+  amount: '1',
+  decimals: 18,
+  networkId: NetworkId['celo-mainnet'],
+  address: '0x471EcE3750Da237f93B8E339c536989b8978a438' as Address,
+}
+
 const mockErc20SwapFromToken = {
   tokenId: 'arbitrum-one:0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
   isNative: false,
@@ -119,6 +128,51 @@ describe('prepareSwapTransactions', () => {
           buyNetworkId: NetworkId['arbitrum-one'],
           sellIsNative: true,
           sellNetworkId: NetworkId['op-mainnet'],
+          sellAmount: (1e18).toString(),
+          slippagePercentage: '1',
+          postHook: mockPostHook,
+          userAddress: mockWalletAddress,
+        },
+      },
+    )
+  })
+
+  it('prepares swap transaction from celo native token', async () => {
+    const { transactions, dataProps } = await prepareSwapTransactions({
+      networkId: NetworkId['arbitrum-one'],
+      walletAddress: '0x2b8441ef13333ffa955c9ea5ab5b3692da95260d',
+      swapFromToken: mockCeloSwapFromToken,
+      swapToTokenAddress: '0x724dc807b04555b71ed48a6896b6f41593b8c637',
+      postHook: mockPostHook,
+    })
+
+    expect(transactions).toHaveLength(2)
+    expect(dataProps).toEqual({ swapTransaction })
+    expect(transactions[0]).toEqual({
+      networkId: NetworkId['celo-mainnet'],
+      from: mockWalletAddress,
+      to: '0x471EcE3750Da237f93B8E339c536989b8978a438',
+      data: expect.any(String),
+    })
+    expect(transactions[1]).toEqual({
+      networkId: NetworkId['celo-mainnet'],
+      from: mockWalletAddress,
+      to: '0x12345678',
+      data: '0xswapdata',
+      value: 111n,
+      gas: 14196n,
+      estimatedGasUse: 12211n,
+    })
+    expect(got.post).toHaveBeenCalledWith(
+      'https://api.mainnet.valora.xyz/getSwapQuote',
+      {
+        json: {
+          buyToken: '0x724dc807b04555b71ed48a6896b6f41593b8c637',
+          buyIsNative: false,
+          buyNetworkId: NetworkId['arbitrum-one'],
+          sellToken: '0x471EcE3750Da237f93B8E339c536989b8978a438',
+          sellIsNative: true,
+          sellNetworkId: NetworkId['celo-mainnet'],
           sellAmount: (1e18).toString(),
           slippagePercentage: '1',
           postHook: mockPostHook,
