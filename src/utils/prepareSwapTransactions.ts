@@ -6,7 +6,13 @@ import {
 } from '../types/shortcuts'
 import { EvmContractCall, Hook as SquidHook } from '@0xsquid/squid-types'
 import { NetworkId } from '../types/networkId'
-import { Address, encodeFunctionData, erc20Abi, parseUnits } from 'viem'
+import {
+  Address,
+  encodeFunctionData,
+  erc20Abi,
+  parseUnits,
+  zeroAddress,
+} from 'viem'
 import { logger } from '../log'
 import { getConfig } from '../config'
 import got from './got'
@@ -103,9 +109,9 @@ export async function prepareSwapTransactions({
   const client = getClient(fromNetworkId)
 
   const transactions: Transaction[] = []
+  const { allowanceTarget } = swapQuote.unvalidatedSwapTransaction
 
-  if (!swapFromToken.isNative && swapFromToken.address) {
-    const { allowanceTarget } = swapQuote.unvalidatedSwapTransaction
+  if (allowanceTarget !== zeroAddress && swapFromToken.address) {
     const approvedAllowanceForSpender = await client.readContract({
       address: swapFromToken.address,
       abi: erc20Abi,
