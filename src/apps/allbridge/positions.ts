@@ -25,6 +25,7 @@ import {
   NETWORK_ID_TO_ALLBRIDGE_CHAIN,
 } from './constants'
 import { getPositionId } from '../../runtime/getPositionId'
+import { logger } from '../../log'
 
 const hook: PositionsHook = {
   getInfo() {
@@ -33,8 +34,12 @@ const hook: PositionsHook = {
     }
   },
   async getPositionDefinitions({ networkId, address, t }) {
-    const allbridgeTokenInfo = (await getAllbridgeTokenInfo({ networkId }))
-      ?.tokens
+    const allbridgeTokenInfo = (
+      await getAllbridgeTokenInfo({ networkId }).catch((e) => {
+        logger.error('allbridge: failed to fetch allbridgeTokenInfo', e)
+        throw e
+      })
+    )?.tokens
     if (!allbridgeTokenInfo) {
       return []
     }
@@ -46,45 +51,65 @@ const hook: PositionsHook = {
         Promise.all(
           allbridgeTokenInfo.map((tokenInfo) => {
             return address
-              ? client.readContract({
-                  address: tokenInfo.poolAddress,
-                  abi: poolAbi,
-                  functionName: 'balanceOf',
-                  args: [address as Address],
-                })
+              ? client
+                  .readContract({
+                    address: tokenInfo.poolAddress,
+                    abi: poolAbi,
+                    functionName: 'balanceOf',
+                    args: [address as Address],
+                  })
+                  .catch((e) => {
+                    logger.error('allbridge: failed to fetch balanceOf', e)
+                    throw e
+                  })
               : undefined
           }),
         ),
         Promise.all(
           allbridgeTokenInfo.map((tokenInfo) => {
             return address
-              ? client.readContract({
-                  address: tokenInfo.poolAddress,
-                  abi: poolAbi,
-                  functionName: 'pendingReward',
-                  args: [address as Address],
-                })
+              ? client
+                  .readContract({
+                    address: tokenInfo.poolAddress,
+                    abi: poolAbi,
+                    functionName: 'pendingReward',
+                    args: [address as Address],
+                  })
+                  .catch((e) => {
+                    logger.error('allbridge: failed to fetch pendingReward', e)
+                    throw e
+                  })
               : undefined
           }),
         ),
         Promise.all(
           allbridgeTokenInfo.map((tokenInfo) => {
-            return client.readContract({
-              address: tokenInfo.poolAddress,
-              abi: poolAbi,
-              functionName: 'totalSupply',
-              args: [],
-            })
+            return client
+              .readContract({
+                address: tokenInfo.poolAddress,
+                abi: poolAbi,
+                functionName: 'totalSupply',
+                args: [],
+              })
+              .catch((e) => {
+                logger.error('allbridge: failed to fetch totalSupply', e)
+                throw e
+              })
           }),
         ),
         Promise.all(
           allbridgeTokenInfo.map((tokenInfo) => {
-            return client.readContract({
-              address: tokenInfo.poolAddress,
-              abi: poolAbi,
-              functionName: 'decimals',
-              args: [],
-            })
+            return client
+              .readContract({
+                address: tokenInfo.poolAddress,
+                abi: poolAbi,
+                functionName: 'decimals',
+                args: [],
+              })
+              .catch((e) => {
+                logger.error('allbridge: failed to fetch decimals', e)
+                throw e
+              })
           }),
         ),
       ])
