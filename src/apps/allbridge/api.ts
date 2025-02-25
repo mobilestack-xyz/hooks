@@ -100,7 +100,7 @@ export async function getAllbridgeTokenInfo({
     allbridgeTokensInfoResponse = await got
       .get('https://core.api.allbridgecoreapi.net/token-info', {
         headers: {
-          'x-Sdk-Agent': 'AllbridgeCoreSDK/0.0.0-development', // as in https://github.com/allbridge-io/allbridge-core-js-sdk/blob/5deb0623d6fffcbc7a85dba22b98942c47d4af6c/src/client/core-api/api-client.ts#L48
+          'x-Sdk-Agent': 'AllbridgeCoreSDK/3.21.0', // as in https://github.com/allbridge-io/allbridge-core-js-sdk/blob/5deb0623d6fffcbc7a85dba22b98942c47d4af6c/src/client/core-api/api-client.ts#L48
         },
       })
       .json()
