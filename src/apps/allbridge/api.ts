@@ -102,12 +102,9 @@ export async function getAllbridgeTokenInfo({
       'x-Sdk-Agent': 'AllbridgeCoreSDK/3.21.0', // as in https://github.com/allbridge-io/allbridge-core-js-sdk/blob/5deb0623d6fffcbc7a85dba22b98942c47d4af6c/src/client/core-api/api-client.ts#L48
     }
 
-    const allBridgeHeader = getConfig().ALLBRIDGE_HEADER
-    if (allBridgeHeader) {
-      const [headerKey, headerValue] = allBridgeHeader.split('=')
-      if (headerKey && headerValue) {
-        headers[headerKey] = headerValue
-      }
+    const allBridgeApiKey = getConfig().ALLBRIDGE_API_KEY
+    if (allBridgeApiKey) {
+      headers['valora-allbridge-core'] = allBridgeApiKey
     }
 
     allbridgeTokensInfoResponse = await got
