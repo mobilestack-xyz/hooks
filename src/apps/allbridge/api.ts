@@ -2,6 +2,7 @@ import got from '../../utils/got'
 import { NetworkId } from '../../types/networkId'
 import { Address } from 'viem'
 import { LRUCache } from 'lru-cache'
+import { getConfig } from '../../config'
 
 type SupportedAllbridgeChainSymbols =
   | 'ETH'
@@ -97,12 +98,20 @@ export async function getAllbridgeTokenInfo({
     TOKEN_INFO_RESPONSE_KEY,
   ) as AllbridgeApiResponse
   if (!allbridgeTokensInfoResponse) {
+    const headers: Record<string, string> = {
+      'x-Sdk-Agent': 'AllbridgeCoreSDK/3.21.0', // as in https://github.com/allbridge-io/allbridge-core-js-sdk/blob/5deb0623d6fffcbc7a85dba22b98942c47d4af6c/src/client/core-api/api-client.ts#L48
+    }
+
+    const allBridgeHeader = getConfig().ALLBRIDGE_HEADER
+    if (allBridgeHeader) {
+      const [headerKey, headerValue] = allBridgeHeader.split('=')
+      if (headerKey && headerValue) {
+        headers[headerKey] = headerValue
+      }
+    }
+
     allbridgeTokensInfoResponse = await got
-      .get('https://core.api.allbridgecoreapi.net/token-info', {
-        headers: {
-          'x-Sdk-Agent': 'AllbridgeCoreSDK/3.21.0', // as in https://github.com/allbridge-io/allbridge-core-js-sdk/blob/5deb0623d6fffcbc7a85dba22b98942c47d4af6c/src/client/core-api/api-client.ts#L48
-        },
-      })
+      .get('https://core.api.allbridgecoreapi.net/token-info', { headers })
       .json()
     cache.set(TOKEN_INFO_RESPONSE_KEY, allbridgeTokensInfoResponse)
   }

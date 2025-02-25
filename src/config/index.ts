@@ -11,6 +11,7 @@ export interface Config {
   EARN_SUPPORTED_NETWORK_IDS: NetworkId[]
   SIMULATE_TRANSACTIONS_URL?: string
   GET_SWAP_QUOTE_URL: string
+  ALLBRIDGE_HEADER?: string
 }
 
 export function networkIdToRpcUrlTransform(val: string | undefined) {
@@ -53,6 +54,7 @@ export function getConfig(): Config {
     EARN_SUPPORTED_NETWORK_IDS: z
       .string()
       .transform((val) => val.split(',') as NetworkId[]),
+    ALLBRIDGE_HEADER: z.string().optional(),
   })
 
   // Provide defaults in development
