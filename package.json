@@ -33,7 +33,7 @@
     "start": "ts-node ./scripts/start.ts",
     "deploy:staging": "gcloud beta functions deploy --gen2 --concurrency=80 --cpu 1 --memory=256MB --project=celo-mobile-alfajores --region=us-central1 --runtime=nodejs20 --env-vars-file=src/api/staging.yaml --update-labels \"valora-repo=hooks,commit-sha=$(git rev-parse HEAD)\"",
     "deploy:staging:http": "yarn deploy:staging --trigger-http --allow-unauthenticated",
-    "deploy:production": "gcloud beta functions deploy --gen2 --concurrency=80 --cpu 1 --memory=512MB --project=celo-mobile-mainnet --region=us-central1 --runtime=nodejs20 --env-vars-file=src/api/production.yaml --update-labels \"valora-repo=hooks,commit-sha=$(git rev-parse HEAD)\" --set-secrets=NETWORK_ID_TO_RPC_URL=hooks-rpc-urls:latest",
+    "deploy:production": "gcloud beta functions deploy --gen2 --concurrency=80 --cpu 1 --memory=512MB --project=celo-mobile-mainnet --region=us-central1 --runtime=nodejs20 --env-vars-file=src/api/production.yaml --update-labels \"valora-repo=hooks,commit-sha=$(git rev-parse HEAD)\" --set-secrets=NETWORK_ID_TO_RPC_URL=hooks-rpc-urls:latest,ALLBRIDGE_API_KEY=allbridge-api-key:latest",
     "deploy:production:http": "yarn deploy:production --trigger-http --allow-unauthenticated"
   },
   "dependencies": {
