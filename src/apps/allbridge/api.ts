@@ -2,6 +2,7 @@ import got from '../../utils/got'
 import { NetworkId } from '../../types/networkId'
 import { Address } from 'viem'
 import { LRUCache } from 'lru-cache'
+import { logger } from '../../log'
 
 type SupportedAllbridgeChainSymbols =
   | 'ETH'
@@ -98,7 +99,41 @@ export async function getAllbridgeTokenInfo({
   ) as AllbridgeApiResponse
   if (!allbridgeTokensInfoResponse) {
     allbridgeTokensInfoResponse = await got
-      .get('https://core.api.allbridgecoreapi.net/token-info')
+      .get('https://core.api.allbridgecoreapi.net/token-info', {
+        hooks: {
+          beforeRequest: [
+            (options) => {
+              logger.debug('allbridge: request details', {
+                url: options.url.toString(),
+                headers: options.headers,
+                method: options.method,
+              })
+            },
+          ],
+          beforeError: [
+            (error) => {
+              logger.error('allbridge: request error', {
+                statusCode: error.response?.statusCode,
+                statusMessage: error.response?.statusMessage,
+                responseHeaders: error.response?.headers,
+                responseBody: error.response?.body,
+                url: error.options?.url?.toString(),
+                requestHeaders: error.options?.headers,
+              })
+              return error
+            },
+          ],
+          afterResponse: [
+            (response) => {
+              logger.debug('allbridge: response received', {
+                statusCode: response.statusCode,
+                headers: response.headers,
+              })
+              return response
+            },
+          ],
+        },
+      })
       .json()
     cache.set(TOKEN_INFO_RESPONSE_KEY, allbridgeTokensInfoResponse)
   }
